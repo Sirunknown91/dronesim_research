@@ -10,18 +10,8 @@ import time
 
 testImagePaths = {"testimage1":"C:\\Users\\sirun\\Documents\\grad school stuff\\Research Assistant Work\\dronesim_research\\sat_testimage_4.png"}
 
-def launchAirsim():
-    # starting airsim
-    os.system("BlocksDroneSim\\Blocks\\WindowsNoEditor\\run.bat")
-
-    # delay a bit and wait for airsim to launch
-    time.sleep(1) 
-
-    # creating client
-    client = airsim.MultirotorClient()
-    client.confirmConnection()
-
-    
+# takes the provided-by-airsim blocks map and converts it to custom satellite image map. (dont use if already have custom stuff)
+def reworkBlocksScene(client):
     # delay a bit and wait for airsim to set some things up
     client.simPrintLogMessage("Setting Up: ", "In Progress")
     time.sleep(0.5) 
@@ -52,6 +42,17 @@ def launchAirsim():
     airsim_destroy_everything.destroyBlocksStuff(client)
 
     client.simPrintLogMessage("Setting Up: ", "Done!")
+
+def launchAirsim():
+    # starting airsim
+    os.system("SatellitePlaneDroneSim\\WindowsNoEditor\\run.bat")
+
+    # delay a bit and wait for airsim to launch
+    time.sleep(1) 
+
+    # creating client
+    client = airsim.MultirotorClient()
+    client.confirmConnection()
     
     # enable waiting for keyboard controls
     airsim_keyboard_controller.controlDroneLoop(client)

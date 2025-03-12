@@ -1,6 +1,12 @@
 import airsim
 import time
 import keyboard
+import numpy
+from airsim import Pose
+from airsim_list_all_objects import printAllObjects, printAllAvailAssets
+from threading import Thread
+from time import sleep
+
 
 # relevant documentation: https://microsoft.github.io/AirSim/apis/
 
@@ -19,12 +25,13 @@ def controlDroneLoop(client : airsim.MultirotorClient):
     print("Drone keyboard control activated. Press ESC to disable")
 
     imageTaken = False
-
     
-    client.moveByVelocityAsync(0, 0, -5, 0.1).join()
+    #client.moveByVelocityAsync(0, 0, -5, 0.1).join() # used previously to make drone realize its not on ground in old janky version
+
+    input_rate = 0.05
 
     while True:
-        # getting flight direction based on keyboard input
+        # setting flight direction based on keyboard input
         vel = [0, 0, 0]
         
         # vertical movement
@@ -33,24 +40,36 @@ def controlDroneLoop(client : airsim.MultirotorClient):
         if(keyboard.is_pressed('ctrl')):
             vel[2] += 10
 
-        # north dim movement
+        # forward/back movement
         if(keyboard.is_pressed('w')):
             vel[0] += 10
         if(keyboard.is_pressed('s')):
             vel[0] += -10
 
-        # east dim movement
+        # left/right movement
         if(keyboard.is_pressed('d')):
             vel[1] += 10
         if(keyboard.is_pressed('a')):
             vel[1] += -10
-
-        client.simPrintLogMessage("Input velocity: ", ", ".join([str(v) for v in vel]))
-
-        dronePose = client.simGetVehiclePose()
-        client.simPrintLogMessage("Approximate height off ground: ", str(round(-dronePose.position.z_val, 2)) + " meters")
         
+        # telling the sim drone to fly
+        client.moveByVelocityBodyFrameAsync(*vel, input_rate)
 
+        #rotation
+        #   roll pitch yaw
+        rot = [0, 0, 0, 0]
+        shouldRot = False
+        if(keyboard.is_pressed('q')):
+            rot[2] += -1
+            shouldRot = True
+        if(keyboard.is_pressed('e')):
+            rot[2] += 1
+            shouldRot = True
+
+        if(shouldRot):
+            pass
+            #client.moveByRollPitchYawZAsync(*rot, input_rate)
+        
         if(keyboard.is_pressed('.') and not imageTaken):
             imageTaken = True
             saveImage(client)
@@ -58,13 +77,24 @@ def controlDroneLoop(client : airsim.MultirotorClient):
         #makes sure image is only take once per press of . instead of once per frame while holding .
         if(not keyboard.is_pressed('.')):
             imageTaken = False
-            
-        # telling the sim drone to fly
-        client.moveByVelocityAsync(*vel, 0.1).join()
+        
+        # if(keyboard.is_pressed(']')):
+        #     gunshotPos = airsim.Vector3r(dronePose.position.x_val, dronePose.position.y_val, -3)
+        #     # runs gunshot spawning on seperate thread so this loop keeps going and controlling the drone
+        #     gunshotThread = Thread(target=simSpawnGunshot, args=(client, gunshotPos))
+        #     gunshotThread.start()
+        
+
+        client.simPrintLogMessage("Input velocity: ", ", ".join([str(v) for v in vel]))
+
+        dronePose = client.simGetVehiclePose()
+        client.simPrintLogMessage("Approximate height off ground: ", str(round(-dronePose.position.z_val, 2)) + " meters")
 
         # disable script
         if(keyboard.is_pressed('esc')):
             break
+
+        time.sleep(input_rate)
 
     print("Drone keyboard control deactivated")
     client.simPrintLogMessage("Input velocity: ", "DISABLED")
