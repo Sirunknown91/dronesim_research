@@ -88,7 +88,9 @@ def controlDroneLoop(client : airsim.MultirotorClient):
         client.simPrintLogMessage("Input velocity: ", ", ".join([str(v) for v in vel]))
 
         dronePose = client.simGetVehiclePose()
-        client.simPrintLogMessage("Approximate height off ground: ", str(round(-dronePose.position.z_val, 2)) + " meters")
+        droneHeightMeters = -dronePose.position.z_val
+        droneHeightFeet = droneHeightMeters * 3.28084
+        client.simPrintLogMessage("Approximate height off ground: ", f"{round(droneHeightMeters, 2)} meters ({round(droneHeightFeet, 2)} feet)")
 
         # disable script
         if(keyboard.is_pressed('esc')):
