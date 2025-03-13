@@ -5,7 +5,9 @@ from threading import Thread
 def simSpawnGunshot(client : airsim.MultirotorClient, pos):
     pose = airsim.Pose(position_val=pos)
     scale = airsim.Vector3r(1, 1, 1)
+    print("trying to spawn obj")
     new_light_name = client.simSpawnObject("PointLight", "GunshotLightBase_BP", pose, scale, False, True)
+    print("spawned obj")
     time.sleep(.1)
     client.simDestroyObject(new_light_name)
 
