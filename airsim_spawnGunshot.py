@@ -5,9 +5,8 @@ from threading import Thread
 def simSpawnGunshot(client : airsim.MultirotorClient, pos):
     pose = airsim.Pose(position_val=pos)
     scale = airsim.Vector3r(1, 1, 1)
-    print("trying to spawn obj")
-    new_light_name = client.simSpawnObject("PointLight", "GunshotLightBase_BP", pose, scale, False, True)
-    print("spawned obj")
+    new_light_name = client.simSpawnObject("GunshotLight", "GunshotLightBase2", pose, scale, False, True)
+    print("spawned gunshot")
     time.sleep(.1)
     client.simDestroyObject(new_light_name)
 
@@ -23,9 +22,9 @@ if __name__ == '__main__':
     client = airsim.MultirotorClient()
     client.confirmConnection()
 
-    for i in range(30):
+    for i in range(100):
         dronePose = client.simGetVehiclePose()
         gunshotPos = airsim.Vector3r(dronePose.position.x_val, dronePose.position.y_val, -3)
         
         simSpawnGunshot(client, gunshotPos)
-        time.sleep(3)
+        time.sleep(2)

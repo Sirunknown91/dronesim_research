@@ -1,3 +1,4 @@
 BlocksDroneSim/
 .venv/
 SatellitePlaneDroneSim/
+*.zip
