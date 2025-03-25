@@ -6,7 +6,6 @@ from pathlib import Path
 import random
 
 def simSpawnGunshot(client : airsim.MultirotorClient, pos):
-    global gunshotCount
     pose = airsim.Pose(position_val=pos)
     scale = airsim.Vector3r(1, 1, 1)
     new_light_name = client.simSpawnObject("GunshotLight", "GunshotLightBase2", pose, scale, False, True)
