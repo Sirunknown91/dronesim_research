@@ -2,3 +2,4 @@ BlocksDroneSim/
 .venv/
 SatellitePlaneDroneSim/
 *.zip
+pycache/

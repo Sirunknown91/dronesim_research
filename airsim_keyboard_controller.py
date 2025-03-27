@@ -7,7 +7,6 @@ from airsim_list_all_objects import printAllObjects, printAllAvailAssets
 from threading import Thread
 from time import sleep
 
-
 # relevant documentation: https://microsoft.github.io/AirSim/apis/
 
 # take image from drone camera and saves it. camera ids: https://microsoft.github.io/AirSim/image_apis/#multirotor
@@ -23,12 +22,15 @@ def controlDroneLoop(client : airsim.MultirotorClient):
     client.enableApiControl(True)
 
     print("Drone keyboard control activated. Press ESC to disable")
-
-    imageTaken = False
     
     #client.moveByVelocityAsync(0, 0, -5, 0.1).join() # used previously to make drone realize its not on ground in old janky version
 
-    input_rate = 0.05
+    imageTaken = False
+
+    input_rate = 0.016
+
+    startingDroneHeightMeters = client.getGpsData().gnss.geo_point.altitude
+
 
     while True:
         # setting flight direction based on keyboard input
@@ -57,19 +59,26 @@ def controlDroneLoop(client : airsim.MultirotorClient):
 
         #rotation
         #   roll pitch yaw
-        rot = [0, 0, 0, 0]
+        rot = [0, 0, 0]
         shouldRot = False
         if(keyboard.is_pressed('q')):
-            rot[2] += -1
+            rot[2] += 1
             shouldRot = True
         if(keyboard.is_pressed('e')):
-            rot[2] += 1
+            rot[2] += -1
             shouldRot = True
 
         if(shouldRot):
-            pass
-            #client.moveByRollPitchYawZAsync(*rot, input_rate)
+            client.moveByAngleRatesThrottleAsync(*rot, throttle=10, duration=input_rate)
         
+        trueVel = client.getGpsData().gnss.velocity
+
+        client.simPrintLogMessage("Approximate flight Velocity (NED): ", ", ".join([str(round(v, 2)) for v in trueVel]))
+ 
+        droneHeightMeters = client.getGpsData().gnss.geo_point.altitude - startingDroneHeightMeters
+        droneHeightFeet = droneHeightMeters * 3.28084
+        client.simPrintLogMessage("Approximate height off ground: ", f"{round(droneHeightMeters, 2)} meters ({round(droneHeightFeet, 2)} feet)")
+
         if(keyboard.is_pressed('.') and not imageTaken):
             imageTaken = True
             saveImage(client)
@@ -77,20 +86,6 @@ def controlDroneLoop(client : airsim.MultirotorClient):
         #makes sure image is only take once per press of . instead of once per frame while holding .
         if(not keyboard.is_pressed('.')):
             imageTaken = False
-        
-        # if(keyboard.is_pressed(']')):
-        #     gunshotPos = airsim.Vector3r(dronePose.position.x_val, dronePose.position.y_val, -3)
-        #     # runs gunshot spawning on seperate thread so this loop keeps going and controlling the drone
-        #     gunshotThread = Thread(target=simSpawnGunshot, args=(client, gunshotPos))
-        #     gunshotThread.start()
-        
-
-        client.simPrintLogMessage("Input velocity: ", ", ".join([str(v) for v in vel]))
-
-        dronePose = client.simGetVehiclePose()
-        droneHeightMeters = -dronePose.position.z_val
-        droneHeightFeet = droneHeightMeters * 3.28084
-        client.simPrintLogMessage("Approximate height off ground: ", f"{round(droneHeightMeters, 2)} meters ({round(droneHeightFeet, 2)} feet)")
 
         # disable script
         if(keyboard.is_pressed('esc')):
@@ -99,7 +94,6 @@ def controlDroneLoop(client : airsim.MultirotorClient):
         time.sleep(input_rate)
 
     print("Drone keyboard control deactivated")
-    client.simPrintLogMessage("Input velocity: ", "DISABLED")
     client.enableApiControl(False)
 
 
