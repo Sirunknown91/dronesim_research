@@ -1,0 +1,13 @@
+
+{
+    "CameraDefaults": {
+        "CaptureSettings": [
+            {
+                "ImageType": 0,
+                "Width": 512,
+                "Height": 512,
+                "FOV_Degrees": 90
+            }
+        ]
+    }
+}
