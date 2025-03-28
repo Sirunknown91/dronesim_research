@@ -6,3 +6,5 @@ SatellitePlaneDroneSim/
 *.pyc
 *.png
 *.pt
+*.zip
+pycache/
