@@ -3,6 +3,7 @@ import airsim_keyboard_controller
 import airsim_texture_replacement
 import airsim_list_all_objects
 import airsim_destroy_everything
+import airsim_find_gunshot
 import os
 import time
 
@@ -55,7 +56,7 @@ def launchAirsim():
     client.confirmConnection()
     
     # enable waiting for keyboard controls
-    airsim_keyboard_controller.controlDroneLoop(client)
+    airsim_find_gunshot.findGunshotLoop(client)
 
 if __name__ == '__main__':
     launchAirsim()

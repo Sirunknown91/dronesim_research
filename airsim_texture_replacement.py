@@ -10,4 +10,4 @@ if __name__ == '__main__':
 
     testImagePath = "C:\\Users\\sirun\\Documents\\grad school stuff\\Research Assistant Work\\dronesim_research\\sat_testimage_4.png"
     
-    textureReplace(client, "VariableSatImagePlane", testImagePath)
+    textureReplace(client, "VariableSatImagePlane_1", testImagePath)
