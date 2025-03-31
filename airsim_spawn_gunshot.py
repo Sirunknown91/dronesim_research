@@ -11,7 +11,6 @@ def simSpawnGunshotAtPos(client : airsim.MultirotorClient, pos : airsim.Vector3r
     pose = airsim.Pose(position_val=pos)
     scale = airsim.Vector3r(1, 1, 1)
     new_light_name = client.simSpawnObject("GunshotLight", "GunshotLightBase2", pose, scale, False, True)
-    print(f"spawned gunshot {new_light_name}")
 
     dronePose = client.simGetVehiclePose()
     dist = pose.position.distance_to(dronePose.position)
