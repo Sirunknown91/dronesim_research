@@ -5,10 +5,17 @@ import time
 import numpy as np
 from yolo import YOLODetector
 
-def detect_pool(client):
+def is_drone_moving(client, threshold=0.1):
+    """Check if the drone is moving based on its velocity"""
+    state = client.getMultirotorState()
+    velocity = state.kinematics_estimated.linear_velocity
+    speed = np.sqrt(velocity.x_val**2 + velocity.y_val**2 + velocity.z_val**2)
+    return speed > threshold
+
+def detect(client, model_paths):
     try:
-        # Initialize YOLO detector
-        detector = YOLODetector("./model/pool.pt")
+        # Initialize multiple YOLO detectors
+        detectors = [YOLODetector(path) for path in model_paths]
         
         # Set camera resolution using ImageRequest
         responses = client.simGetImages([
@@ -30,6 +37,12 @@ def detect_pool(client):
         client.simSetCameraFov(camera_name="bottom_center", fov_degrees=90)
 
         while True:
+            # Check if drone is moving
+            if not is_drone_moving(client):
+                print("Drone is stationary, waiting for movement...")
+                time.sleep(0.1)  # Small delay to prevent CPU overuse
+                continue
+
             rawImage = client.simGetImage("bottom_center", airsim.ImageType.Scene)
             if rawImage is None:
                 print("Failed to get image")
@@ -40,20 +53,28 @@ def detect_pool(client):
                 print("Failed to decode image")
                 break
 
-            # Process image with YOLO detector
-            detection_image, _ = detector.process_image(png)
+            # Create a copy for detection results
+            detection_image = png.copy()
+            
+            # Resize images to 1024x1024 for better visibility
+            png = cv2.resize(png, (1024, 1024))
+            detection_image = cv2.resize(detection_image, (1024, 1024))
+            
+            # Process image with all YOLO detectors
+            for detector in detectors:
+                # Get detection results and update the same image
+                _, results = detector.process_image(png)
+                # Draw detections on the detection_image
+                detection_image = detector.draw_detections(detection_image, results)
 
             # Resize images to 2x for display
             display_png = cv2.resize(png, (png.shape[1], png.shape[0]))
             display_detection = cv2.resize(detection_image, (detection_image.shape[1], detection_image.shape[0]))
 
             # Show both windows with enlarged images
-            cv2.imshow("Bottom Camera View", display_png)
-            cv2.imshow("Detection Results", display_detection)
-            
-            if cv2.getWindowProperty("Bottom Camera View", cv2.WND_PROP_VISIBLE) < 1 or \
-               cv2.getWindowProperty("Detection Results", cv2.WND_PROP_VISIBLE) < 1:
-                break
+            # cv2.imshow("Original Video", display_png)
+            cv2.imshow("Detection Video", display_detection)
+        
                 
             key = cv2.waitKey(1) & 0xFF
             
@@ -69,7 +90,12 @@ if __name__ == '__main__':
     try:
         client = airsim.MultirotorClient()
         client.confirmConnection()
-        detect_pool(client)
+        # Define multiple model paths
+        model_paths = [
+            "./model/best_pool.pt",
+            "./model/best_car.pt",
+        ]
+        detect(client, model_paths)
     except Exception as e:
         print(f"Connection error: {str(e)}")
     finally:

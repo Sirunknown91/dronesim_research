@@ -1,5 +1,19 @@
-
 {
+    "SimMode": "Multirotor",
+    "ClockType": "",
+    "ClockSpeed": 1,
+    "LocalHostIp": "127.0.0.1",
+    "ApiServerPort": 41451,
+    "RecordUIVisible": false,
+    "LogMessagesVisible": false,
+    "ShowLosDebugLines": false,
+    "ViewMode": "SpringArmChase",
+    "RpcEnabled": false,
+    "EngineSound": true,
+    "PhysicsEngineName": "",
+    "SpeedUnitFactor": 1.0,
+    "SpeedUnitLabel": "m/s",
+    "Wind": { "X": 0, "Y": 0, "Z": 0 },
     "CameraDefaults": {
         "CaptureSettings": [
             {
@@ -8,6 +22,64 @@
                 "Height": 512,
                 "FOV_Degrees": 90
             }
+      ],
+      "UnrealEngine": {
+        "PixelFormatOverride": [
+          {
+            "ImageType": 0,
+            "PixelFormat": 0
+          }
         ]
+      }
+    },
+    "CameraDirector": {
+      "FollowDistance": -25,
+      "X": 0, 
+      "Y": 0, 
+      "Z": 0,
+      "Pitch": -30,
+      "Roll": 0,
+      "Yaw": 0
+    },
+    "TimeOfDay": {
+      "Enabled": false,
+      "StartDateTime": "",
+      "CelestialClockSpeed": 1,
+      "StartDateTimeDst": false,
+      "UpdateIntervalSecs": 60
+    },
+    "SegmentationSettings": {
+      "InitMethod": "",
+      "MeshNamingMethod": "",
+      "OverrideExisting": true
+    },
+    "PawnPaths": {
+      "BareboneCar": {"PawnBP": "Class'/AirSim/VehicleAdv/Vehicle/VehicleAdvPawn.VehicleAdvPawn_C'"},
+      "DefaultCar": {"PawnBP": "Class'/AirSim/VehicleAdv/SUV/SuvCarPawn.SuvCarPawn_C'"},
+      "DefaultQuadrotor": {"PawnBP": "Class'/AirSim/Blueprints/BP_FlyingPawn.BP_FlyingPawn_C'"},
+      "DefaultComputerVision": {"PawnBP": "Class'/AirSim/Blueprints/BP_ComputerVisionPawn.BP_ComputerVisionPawn_C'"}
+    },
+    "Vehicles": {
+      "Drone1": {
+        "VehicleType": "SimpleFlight",
+        "Cameras": {
+          "front_center": {
+            "CaptureSettings": [
+              {
+                "ImageType": 0,
+                "Width": 512,
+                "Height": 512,
+                "FOV_Degrees": 90
+              }
+            ],
+            "X": 0.25, 
+            "Y": 0, 
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+          }
+        }
+      }
     }
-}
+  }

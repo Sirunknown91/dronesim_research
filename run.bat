@@ -1,1 +1,1 @@
-start D:\drone\WindowsNoEditor\AirSimTest.exe -ResX=1280 -ResY=720 -windowed -r.vsync=1 -settings.json=settings.json
+start D:\drone\WindowsNoEditor2\AirSimTest.exe -ResX=1024 -ResY=720 -windowed -r.vsync=1 -settings.json=settings.json
