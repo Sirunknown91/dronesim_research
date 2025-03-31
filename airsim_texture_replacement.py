@@ -8,7 +8,6 @@ if __name__ == '__main__':
     client = airsim.MultirotorClient()
     client.confirmConnection()
 
-    testImagePath = "C:\\Users\\sirun\\Downloads\\map_output.png"
-    test2 = "test_image.png"
+    testImagePath = "C:\\Users\\sirun\\Documents\\grad school stuff\\Research Assistant Work\\dronesim_research\\sat_testimage_4.png"
     
     textureReplace(client, "VariableSatImagePlane_1", testImagePath)
