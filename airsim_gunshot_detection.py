@@ -105,5 +105,5 @@ def spawnGunshotsFromInput(client : airsim.MultirotorClient):
 if __name__ == '__main__':
     client = airsim.MultirotorClient()
     client.confirmConnection()
-    print("Starting gunshot detection...")
+    print("Starting Muti-target detection & gunshot detection...")
     spawnGunshotsFromInput(client)

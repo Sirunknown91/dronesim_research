@@ -5,11 +5,11 @@ from PIL import Image
 
 # === Configuration ===
 API_KEY = 'AIzaSyBA25B9Ba8UI5ZIgXKOOAaghe460qg-_rU'  # <-- Replace with your API key
-center_lat = 41.582778     # Center latitude, 41°34'58"N
-center_lng = -87.475278    # Center longitude, 87°28'31"W
-zoom = 20                  # Zoom level (17~20 is usually clear)
-img_size = 640             # Size of each image, maximum 640
-grid_size = 7              # Total of NxN images, 3x3 means 9 images
+center_lat = 41.582778     
+center_lng = -87.475278    
+zoom = 21                  
+img_size = 640             
+grid_size = 11             
 output_file = 'map_output.png'
 
 # === Coordinate Conversion ===
@@ -53,6 +53,9 @@ def fetch_large_map():
 
             tile_img = Image.open(tile_file)
             full_image.paste(tile_img, (col * img_size, row * img_size))
+            
+            # Remove the temporary tile file after pasting it
+            os.remove(tile_file)
 
     full_image.save(output_file)
     print(f"Stitching complete, large image saved as {output_file}")

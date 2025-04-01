@@ -27,9 +27,9 @@ class YOLODetector:
     
     # Predefined colors for specific classes
     PREDEFINED_COLORS = {
-        "vehicle": (0, 0, 255),      
-        "large_vehicle": (0, 255, 0),   
-        "pool": (111, 48, 255)           
+        "vehicle": "#FF0000",     
+        "large_vehicle": "#0000FF",   
+        "pool": "#8300a4"        
     }
     
     # Class-wide dictionary to track colors assigned to class names across all models
@@ -41,28 +41,48 @@ class YOLODetector:
         # Vehicle mappings
         "car": "vehicle",
         "truck": "vehicle",
-        "tractor": "vehicle",
-        "camping_car": "vehicle",
+        # "tractor": "vehicle",
+        # "camping_car": "vehicle",
         "van": "vehicle",
-        "bus": "vehicle",
+        # "bus": "vehicle",
         "pickup": "vehicle",
-        "other": "vehicle",
+        # "other": "vehicle",
         # Previous mappings commented out
         # "truck": "large_vehicle",
         # "van": "large_vehicle",
         # "person": "human",
     }
     
+    # List of classes to ignore in detection results
+    IGNORE_CLASSES = ["other","camping_car","plane","ship","tractor"]
+    
+    # Dictionary for class-specific confidence thresholds
+    CLASS_CONF_THRESHOLDS = {
+        "large_vehicle": 0.4,
+        "vehicle": 0.4,
+        "pool": 0.7
+        # Add more class-specific thresholds as needed
+    }
+    
     def __init__(self, model_path="runs/detect/train3/weights/best.pt", device="cuda"):
         self.model = YOLO(model_path).to(device)
         self.model_name = os.path.basename(model_path)
         
+    @staticmethod
+    def hex_to_rgb(hex_color):
+        """Convert hex color string to BGR tuple (OpenCV format)"""
+        hex_color = hex_color.lstrip('#')
+        rgb = tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+        return (rgb[2], rgb[1], rgb[0])  # Convert RGB to BGR
+    
     @classmethod
     def get_color_for_class(cls, class_name):
         """Get a consistent color for a class name across all models"""
         # First check if the class has a predefined color (after mapping)
         if class_name in cls.PREDEFINED_COLORS:
-            return cls.PREDEFINED_COLORS[class_name]
+
+            print(cls.PREDEFINED_COLORS[class_name])
+            return cls.hex_to_rgb(cls.PREDEFINED_COLORS[class_name])
             
         # If not in predefined colors, check if we've already assigned a color
         if class_name not in cls.class_colors:
@@ -72,7 +92,7 @@ class YOLODetector:
             cls.next_color_index += 1
         return cls.class_colors[class_name]
         
-    def process_image(self, image, conf_threshold=0.5):
+    def process_image(self, image, conf_threshold=0.2):
         """
         Process an image using YOLO detection and return both the original and annotated images
         """
@@ -95,13 +115,24 @@ class YOLODetector:
                 targets_found = True
                 for box in boxes:
                     conf = box.conf.item()
-                    bx1, by1, bx2, by2 = [int(x) for x in box.xyxy[0]]
                     class_id = int(box.cls.item())
                     class_name = self.model.names[class_id]
+                    
+                    # Skip if class is in ignore list
+                    if class_name in self.__class__.IGNORE_CLASSES:
+                        continue
                     
                     # Apply class name mapping if exists
                     if class_name in self.__class__.class_name_mapping:
                         class_name = self.__class__.class_name_mapping[class_name]
+                    
+                    # Check class-specific confidence threshold
+                    if class_name in self.__class__.CLASS_CONF_THRESHOLDS:
+                        class_threshold = self.__class__.CLASS_CONF_THRESHOLDS[class_name]
+                        if conf < class_threshold:
+                            continue
+                    
+                    bx1, by1, bx2, by2 = [int(x) for x in box.xyxy[0]]
                     
                     # Get consistent color for this class
                     color = self.get_color_for_class(class_name)
@@ -132,13 +163,24 @@ class YOLODetector:
                 targets_found = True
                 for box in boxes:
                     conf = box.conf.item()
-                    bx1, by1, bx2, by2 = [int(x) for x in box.xyxy[0]]
                     class_id = int(box.cls.item())
                     class_name = self.model.names[class_id]
+                    
+                    # Skip if class is in ignore list
+                    if class_name in self.__class__.IGNORE_CLASSES:
+                        continue
                     
                     # Apply class name mapping if exists
                     if class_name in self.__class__.class_name_mapping:
                         class_name = self.__class__.class_name_mapping[class_name]
+                    
+                    # Check class-specific confidence threshold
+                    if class_name in self.__class__.CLASS_CONF_THRESHOLDS:
+                        class_threshold = self.__class__.CLASS_CONF_THRESHOLDS[class_name]
+                        if conf < class_threshold:
+                            continue
+                    
+                    bx1, by1, bx2, by2 = [int(x) for x in box.xyxy[0]]
                     
                     # Get consistent color for this class
                     color = self.get_color_for_class(class_name)

@@ -4,7 +4,9 @@ import keyboard
 import time
 import numpy as np
 from yolo import YOLODetector
+import msgpack
 
+unpacker = msgpack.Unpacker(max_bin_len=31457280) 
 def is_drone_moving(client, threshold=0.1):
     """Check if the drone is moving based on its velocity"""
     state = client.getMultirotorState()
@@ -39,7 +41,7 @@ def detect(client, model_paths):
         while True:
             # Check if drone is moving
             if not is_drone_moving(client):
-                print("Drone is stationary, waiting for movement...")
+                # print("Drone is stationary, waiting for movement...")
                 time.sleep(0.1)  # Small delay to prevent CPU overuse
                 continue
 
@@ -80,7 +82,7 @@ def detect(client, model_paths):
             
             if key == 27 or keyboard.is_pressed('esc'): 
                 break
-
+            # time.sleep(0.1)
     except Exception as e:
         print(f"Error occurred: {str(e)}")
     finally:
