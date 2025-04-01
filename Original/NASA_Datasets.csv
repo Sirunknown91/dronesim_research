@@ -1,0 +1,792 @@
+﻿ID,Address,Sitelite_img_name,Streetview_img_name,Status,Pool,City
+1,13143 S Carondolet Ave,s1001,v10001,Abandoned,False,"Chicago, Illinois"
+2,7222 S Euclid Ave,s1002,v10002,Abandoned,False,"Chicago, Illinois"
+3,7236 S Euclid Ave,s1003,v10003,Owned,False,"Chicago, Illinois"
+4,1344 S Springfield Ave,s1004,v10004,Abandoned,False,"Chicago, Illinois"
+5,3853 W 14th St,s1005,v10005,Owned,False,"Chicago, Illinois"
+6,500 W 103rd Pl,s1006,v10006,Abandoned,False,"Chicago, Illinois"
+7,518 N Troy St,s1007,v10007,Abandoned,False,"Chicago, Illinois"
+8,531 N Troy St,s1008,v10008,Owned,False,"Chicago, Illinois"
+9,11841 S Lafayette Ave,s1009,v10009,Abandoned,False,"Chicago, Illinois"
+10,11723 S Lafayette Ave,s1010,v10010,Owned,False,"Chicago, Illinois"
+11,520 W 80th St,s1011,v10011,Abandoned,False,"Chicago, Illinois"
+12,7920 S Parnell Ave,s1012,v10012,Owned,False,"Chicago, Illinois"
+13,2023 N Drake Ave,s1013,v10013,Abandoned,False,"Chicago, Illinois"
+14,3560 W McLean Ave,s1014,v10014,Owned,False,"Chicago, Illinois"
+15,4600 S La Crosse Ave,s1015,v10015,Abandoned,False,"Chicago, Illinois"
+16,4828 W 46th St,s1016,v10016,Owned,False,"Chicago, Illinois"
+17,9312 S Kenwood Ave 60619,s1017,v10017,Abandoned,False,"Chicago, Illinois"
+18,1109 E 93rd St 60619,s1018,v10018,Owned,False,"Chicago, Illinois"
+19,8446 S Escanaba Ave 60617,s1019,v10019,Abandoned,False,"Chicago, Illinois"
+20,8419 S Escanaba Ave 60617,s1020,v10020,Owned,False,"Chicago, Illinois"
+21,1732 W 19th St 60608,s1021,v10021,Abandoned,False,"Chicago, Illinois"
+22,1751 W 19th St 60608,s1022,v10022,Owned,False,"Chicago, Illinois"
+23,255 E 135th Pl 60827,s1023,v10023,Abandoned,False,"Chicago, Illinois"
+24,82 E 136th St 60827,s1024,v10024,Owned,False,"Chicago, Illinois"
+25,7337 S Peoria St 60621,s1025,v10025,Abandoned,False,"Chicago, Illinois"
+26,7321 S Peoria St 60621,s1026,v10026,Owned,False,"Chicago, Illinois"
+27,1348 S Keeler Ave 60623,s1027,v10027,Abandoned,False,"Chicago, Illinois"
+28,1311 S Kildare Ave 60623,s1028,v10028,Owned,True,"Chicago, Illinois"
+29,1657 S Central Park Ave 60623,s1029,v10029,Abandoned,False,"Chicago, Illinois"
+30,5435 S Justine St 60609,s1030,v10030,Abandoned,False,"Chicago, Illinois"
+31,5429 S Justine St 60609,s1031,v10031,Owned,False,"Chicago, Illinois"
+32,7339 S Peoria St 60621,s1032,v10032,Abandoned,False,"Chicago, Illinois"
+33,11732 S La Salle St 60628,s1033,v10033,Abandoned,False,"Chicago, Illinois"
+34,11756 S Wentworth Ave 60628,s1034,v10034,Owned,False,"Chicago, Illinois"
+35,11739 S Wentworth Ave 60628,s1035,v10035,Owned,False,"Chicago, Illinois"
+36,116 W 113th Pl 60628,s1036,v10036,Abandoned,False,"Chicago, Illinois"
+37,2400 S Drake Ave 60623,s1037,v10037,Abandoned,False,"Chicago, Illinois"
+38,2344 S Drake Ave 60623,s1038,v10038,Owned,False,"Chicago, Illinois"
+39,5239 W Race Ave 60644,s1039,v10039,Abandoned,False,"Chicago, Illinois"
+40,714 N Long Ave 60644,s1040,v10040,Owned,True,"Chicago, Illinois"
+41,5206 S Hermitage Ave 60609,s1041,v10041,Abandoned,False,"Chicago, Illinois"
+42,1332 S Heath Ave  60608,s1042,v10042,Abandoned,False,"Chicago, Illinois"
+43,1325 S Heath Ave 60608,s1043,v10043,Owned,False,"Chicago, Illinois"
+44,2039 W 69th Pl 60636,s1044,v10044,Abandoned,False,"Chicago, Illinois"
+45,2036 W 69th Pl 60636,s1045,v10045,Owned,False,"Chicago, Illinois"
+46,4036 W Monroe St 60624,s1046,v10046,Abandoned,False,"Chicago, Illinois"
+47,4023 W Adams S 60624,s1047,v10047,Owned,False,"Chicago, Illinois"
+48,4259 W Gladys Ave 60624,s1048,v10048,Abandoned,False,"Chicago, Illinois"
+49,1154 W 88th St 60624,s1049,v10049,Abandoned,False,"Chicago, Illinois"
+50,8804 S Racine Ave 60620,s1050,v10050,Owned,False,"Chicago, Illinois"
+51,8915 S Racine Ave 60620,s1051,v10051,Owned,False,"Chicago, Illinois"
+52,4011 W Wilcox St 60624,s1052,v10052,Abandoned,False,"Chicago, Illinois"
+53,6045 S Throop St 60636,s1053,v10053,Abandoned,False,"Chicago, Illinois"
+54,1034 W 61st St 60621,s1054,v10054,Owned,False,"Chicago, Illinois"
+55,6030 S Ada St,s1055,v10055,Owned,False,"Chicago, Illinois"
+56,7941 S Escanaba Ave,s1056,v10056,Abandoned,False,"Chicago, Illinois"
+57,7935 S Escanaba Ave,s1057,v10057,Owned,False,"Chicago, Illinois"
+58,1500 W 71st St,s1058,v10058,Abandoned,False,"Chicago, Illinois"
+59,1455 W 71st St 60636,s1059,v10059,Owned,False,"Chicago, Illinois"
+60,7222 S Sangamon St,s1060,v10060,Abandoned,False,"Chicago, Illinois"
+61,2037 E 75th St,s1061,v10061,Abandoned,False,"Chicago, Illinois"
+62,7235 S Vernon Ave,s1062,v10062,Owned,False,"Chicago, Illinois"
+63,7231 S Prairie Ave,s1063,v10063,Owned,True,"Chicago, Illinois"
+64,10817 S Hoxie Ave,s1064,v10064,Abandoned,False,"Chicago, Illinois"
+65,10808 S Hoxie Ave,s1065,v10065,Owned,False,"Chicago, Illinois"
+66,1345 S Keeler Ave,s1066,v10066,Abandoned,False,"Chicago, Illinois"
+67,5817 S Carpenter St,s1067,v10067,Abandoned,False,"Chicago, Illinois"
+68,4337 S Marshfield Ave,s1068,v10068,Owned,False,"Chicago, Illinois"
+69,8437 S Marshfield Ave,s1069,v10069,Owned,False,"Chicago, Illinois"
+70,8439 S Marshfield Ave,s1070,v10070,Abandoned,False,"Chicago, Illinois"
+71,1641 W 85th St,s1071,v10071,Owned,False,"Chicago, Illinois"
+72,1014 S Independence Blvd,s1072,v10072,Abandoned,False,"Chicago, Illinois"
+73,825 N Lawndale Ave,s1073,v10073,Abandoned,False,"Chicago, Illinois"
+74,6325 W Waveland Ave,s1074,v10074,Owned,False,"Chicago, Illinois"
+75,6338 W Waveland Ave,s1075,v10075,Owned,False,"Chicago, Illinois"
+76,3721 N Narragansett Av,s1076,v10076,Owned,False,"Chicago, Illinois"
+77,324 S Mozart St,s1077,v10077,Abandoned,False,"Chicago, Illinois"
+78,329 S Mozart St,s1078,v10078,Abandoned,False,"Chicago, Illinois"
+79,4867 W Berteau Ave,s1079,v10079,Owned,False,"Chicago, Illinois"
+80,4211 N Kilpatrick Ave,s1080,v10080,Owned,True,"Chicago, Illinois"
+81,836 N Washtenaw Ave,s1081,v10081,Abandoned,False,"Chicago, Illinois"
+82,6432 S Hoyne Ave,s1082,v10082,Abandoned,False,"Chicago, Illinois"
+83,4711 W Hutchinson St 60641,s1083,v10083,Owned,True,"Chicago, Illinois"
+84,8551 S Saginaw Ave 60617,s1084,v10084,Abandoned,False,"Chicago, Illinois"
+85,8609 S Marquette Ave 60617,s1085,v10085,Owned,False,"Chicago, Illinois"
+86,322 S Kostner Ave 60624,s1086,v10086,Abandoned,False,"Chicago, Illinois"
+87,4420 W Gladys Ave 60624,s1087,v10087,Owned,False,"Chicago, Illinois"
+88,7915 S Emerald Ave 60620,s1088,v10088,Abandoned,False,"Chicago, Illinois"
+89,7815 S Emerald Ave 60620,s1089,v10089,Abandoned,False,"Chicago, Illinois"
+90,7824 S Emerald Ave 60620,s1090,v10090,Owned,False,"Chicago, Illinois"
+91,710 N Long Ave 60644,s1091,v10091,Abandoned,False,"Chicago, Illinois"
+92,714 N Long Ave 60644,s1092,v10092,Owned,True,"Chicago, Illinois"
+93,715 N Pine Ave 60644,s1093,v10093,Owned,True,"Chicago, Illinois"
+94,3435 W 71st St 60629,s1094,v10094,Abandoned,False,"Chicago, Illinois"
+95,540 N Leamington Ave 60644,s1095,v10095,Abandoned,False,"Chicago, Illinois"
+96,532 N Leamington Ave 60644,s1096,v10096,Owned,False,"Chicago, Illinois"
+97,8702 S Marquette Ave 60617,s1097,v10097,Abandoned,False,"Chicago, Illinois"
+98,8717 S Saginaw Ave 60617,s1098,v10098,Owned,False,"Chicago, Illinois"
+99,7936 S Lowe Ave 60620,s1099,v10099,Abandoned,False,"Chicago, Illinois"
+100,7822 S Union Ave 60620,s10100,v10100,Abandoned,False,"Chicago, Illinois"
+101,4044 W 5th Ave 60624,s10101,v10101,Owned,False,"Chicago, Illinois"
+102,10706 S Langley Ave 60628,s10102,v10102,Abandoned,False,"Chicago, Illinois"
+103,9438 S Justine St 60620,s10103,v10103,Abandoned,False,"Chicago, Illinois"
+104,9431 S Justine St 60620,s10104,v10104,Owned,False,"Chicago, Illinois"
+105,5632 S Honore St 60636,s10105,v10105,Abandoned,False,"Chicago, Illinois"
+106,5631 S Honore St 60636,s10106,v10106,Owned,False,"Chicago, Illinois"
+107,5346 S Rockwell St 60632,s10107,v10107,Owned,True,"Chicago, Illinois"
+108,4630 S Evans Ave 60653,s10108,v10108,Abandoned,False,"Chicago, Illinois"
+109,4741 S Evans Ave 60615,s10109,v10109,Owned,False,"Chicago, Illinois"
+110,11713 S Morgan St 60643,s10110,v10110,Abandoned,False,"Chicago, Illinois"
+111,12716 S Union Ave 60628,s10111,v10111,Owned,False,"Chicago, Illinois"
+112,3928 W Fillmore St 60624,s10112,v10112,Abandoned,False,"Chicago, Illinois"
+113,12023 S Princeton Ave 60628,s10113,v10113,Abandoned,False,"Chicago, Illinois"
+114,1430 S Harding Ave 60623,s10114,v10114,Owned,False,"Chicago, Illinois"
+115,7200 S Morgan St 60621,s10115,v10115,Abandoned,False,"Chicago, Illinois"
+116,4117 S Albany Ave 60632,s10116,v10116,Abandoned,False,"Chicago, Illinois"
+117,3139 W 41st Pl,s10117,v10117,Owned,False,"Chicago, Illinois"
+118,53 E 103rd Pl 60628,s10118,v10118,Abandoned,False,"Chicago, Illinois"
+119,10416 S Wabash Ave 60628,s10119,v10119,Owned,False,"Chicago, Illinois"
+120,2219 S Kedvale Ave 60623,s10120,v10120,Abandoned,False,"Chicago, Illinois"
+121,4129 W Cermak Rd 60623,s10121,v10121,Owned,False,"Chicago, Illinois"
+122,3329 W Van Buren St 60624,s10122,v10122,Abandoned,False,"Chicago, Illinois"
+123,11745 S La Salle St 60628,s10123,v10123,Abandoned,False,"Chicago, Illinois"
+124,225 W 118th St 60628,s10124,v10124,Owned,False,"Chicago, Illinois"
+125,7128 S Champlain Ave 60619,s10125,v10125,Abandoned,False,"Chicago, Illinois"
+126,7144 S Champlain Ave,s10126,v10126,Owned,False,"Chicago, Illinois"
+127,6822 S Loomis Blvd 60636,s10127,v10127,Owned,False,"Chicago, Illinois"
+128,49 W 111th Pl 60628,s10128,v10128,Abandoned,False,"Chicago, Illinois"
+129,4856 W St Paul Ave 60639,s10129,v10129,Owned,True,"Chicago, Illinois"
+130,9105 S Wentworth Ave 60620,s10130,v10130,Abandoned,False,"Chicago, Illinois"
+131,6152 S Elizabeth St 60636,s10131,v10131,Owned,False,"Chicago, Illinois"
+132,333 W 107th Pl 60628,s10132,v10132,Abandoned,False,"Chicago, Illinois"
+133,335 W 107th Pl 60628,s10133,v10133,Owned,False,"Chicago, Illinois"
+134,1419 S Tripp Ave 60623,s10134,v10134,Abandoned,False,"Chicago, Illinois"
+135,1403 S Tripp Ave 60623,s10135,v10135,Owned,False,"Chicago, Illinois"
+136,7414 S May St 60621,s10136,v10136,Abandoned,False,"Chicago, Illinois"
+137,8743 S Dorchester Ave 60619,s10137,v10137,Owned,False,"Chicago, Illinois"
+138,7410 S May St 60621,s10138,v10138,Abandoned,False,"Chicago, Illinois"
+139,6519 S Laflin St 60636,s10139,v10139,Abandoned,False,"Chicago, Illinois"
+140,6550 S Laflin St 60636,s10140,v10140,Owned,False,"Chicago, Illinois"
+141,4642 W Monroe St 60644,s10141,v10141,Abandoned,False,"Chicago, Illinois"
+142,6533 S Justine St 60636,s10142,v10142,Owned,False,"Chicago, Illinois"
+143,10111 S Eberhart Ave 60628,s10143,v10143,Abandoned,False,"Chicago, Illinois"
+144,10145 S Eberhart Ave 60628,s10144,v10144,Owned,False,"Chicago, Illinois"
+145,8616 S Emerald Ave 60620,s10145,v10145,Abandoned,False,"Chicago, Illinois"
+146,756 W 87th St 60620,s10146,v10146,Owned,False,"Chicago, Illinois"
+147,11844 S Union Ave 60628,s10147,v10147,Abandoned,False,"Chicago, Illinois"
+148,11916 S Wallace St 60628,s10148,v10148,Owned,False,"Chicago, Illinois"
+149,6156 S Francisco Ave 60629,s10149,v10149,Abandoned,False,"Chicago, Illinois"
+150,6148 S Richmond St 60629,s10150,v10150,Owned,False,"Chicago, Illinois"
+151,1727 W 106th St 60643,s10151,v10151,Abandoned,False,"Chicago, Illinois"
+152,10608 South Wood Street 60643,s10152,v10152,Owned,False,"Chicago, Illinois"
+153,2058 W 108th Pl 60643,s10153,v10153,Owned,False,"Chicago, Illinois"
+154,6613 S Green St 60621,s10154,v10154,Abandoned,False,"Chicago, Illinois"
+155,7029 S Vernon Ave 60637,s10155,v10155,Abandoned,False,"Chicago, Illinois"
+156,7016 S Vernon Ave 60637,s10156,v10156,Owned,False,"Chicago, Illinois"
+157,1529 S St Louis Ave 60623,s10157,v10157,Abandoned,False,"Chicago, Illinois"
+158,6609 S Seeley Ave 60636,s10158,v10158,Abandoned,False,"Chicago, Illinois"
+159,6621 S Seeley Ave 60636,s10159,v10159,Owned,False,"Chicago, Illinois"
+160,8128 S May St 60620,s10160,v10160,Abandoned,False,"Chicago, Illinois"
+161,8115 South Throop Street 60620,s10161,v10161,Owned,False,"Chicago, Illinois"
+162,5621 S Carpenter St 60621,s10162,v10162,Abandoned,False,"Chicago, Illinois"
+163,5618 S Aberdeen St 60621,s10163,v10163,Owned,False,"Chicago, Illinois"
+164,7821 S Yates Blvd 60649,s10164,v10164,Abandoned,False,"Chicago, Illinois"
+165,157 W 74th St 60621,s10165,v10165,Owned,False,"Chicago, Illinois"
+166,10145 S State St 60628,s10166,v10166,Abandoned,False,"Chicago, Illinois"
+167,10136 S Lafayette Ave 60628,s10167,v10167,Owned,False,"Chicago, Illinois"
+168,7246 S Hermitage Ave 60636,s10168,v10168,Abandoned,False,"Chicago, Illinois"
+169,7219 S Wood St 60636,s10169,v10169,Owned,False,"Chicago, Illinois"
+170,7215 S Paulina St 60626,s10170,v10170,Owned,False,"Chicago, Illinois"
+171,8541 S Marshfield Ave 60620,s10171,v10171,Abandoned,False,"Chicago, Illinois"
+172,8547 S Marshfield Ave 60620,s10172,v10172,Owned,False,"Chicago, Illinois"
+173,5136 S Hermitage Ave 60609,s10173,v10173,Abandoned,False,"Chicago, Illinois"
+174,5341 S Wood St 60609,s10174,v10174,Abandoned,False,"Chicago, Illinois"
+175,5144 S Wood S 60609,s10175,v10175,Owned,False,"Chicago, Illinois"
+176,4411 W West End Ave 60624,s10176,v10176,Abandoned,False,"Chicago, Illinois"
+177,5139 S Hermitage Ave 60609,s10177,v10177,Abandoned,False,"Chicago, Illinois"
+178,5154 S Paulina St 60609,s10178,v10178,Owned,False,"Chicago, Illinois"
+179,5239 S Sangamon St 60609,s10179,v10179,Abandoned,False,"Chicago, Illinois"
+180,5212 S Sangamon St 60609,s10180,v10180,Owned,False,"Chicago, Illinois"
+181,5144 S Hermitage Ave 60609,s10181,v10181,Abandoned,False,"Chicago, Illinois"
+182,647 N Christiana Ave 60624,s10182,v10182,Abandoned,False,"Chicago, Illinois"
+183,611 N Homan Ave. 60624,s10183,v10183,Owned,False,"Chicago, Illinois"
+184,11236 S Homewood Ave 60643,s10184,v10184,Abandoned,False,"Chicago, Illinois"
+185,11179 S Esmond St 60643,s10185,v10185,Owned,False,"Chicago, Illinois"
+186,7247 S Damen Ave 60636,s10186,v10186,Abandoned,False,"Chicago, Illinois"
+187,7259 S Damen Ave 60636,s10187,v10187,Owned,True,"Chicago, Illinois"
+188,4626 W Adams St 60644,s10188,v10188,Abandoned,False,"Chicago, Illinois"
+189,5729 S Paulina St 60636,s10189,v10189,Abandoned,False,"Chicago, Illinois"
+190,5724 S Paulina St 60636,s10190,v10190,Owned,False,"Chicago, Illinois"
+191,8106 S Kingston Ave 60617,s10191,v10191,Abandoned,False,"Chicago, Illinois"
+192,10245 S State St 60628,s10192,v10192,Abandoned,False,"Chicago, Illinois"
+193,10153 S State St 60628,s10193,v10193,Owned,False,"Chicago, Illinois"
+194,822 S Karlov Ave 60624,s10194,v10194,Abandoned,False,"Chicago, Illinois"
+195,8350 S Green St 60620,s10195,v10195,Abandoned,False,"Chicago, Illinois"
+196,8332 S Peoria St 60620,s10196,v10196,Owned,False,"Chicago, Illinois"
+197,8538 S Chappel Ave 60617,s10197,v10197,Abandoned,False,"Chicago, Illinois"
+198,8608 S Jeffery Blvd 60617,s10198,v10198,Owned,False,"Chicago, Illinois"
+199,8549 S Kingston Ave 60617,s10199,v10199,Abandoned,False,"Chicago, Illinois"
+200,8557 S Essex Ave 60617,s10200,v10200,Owned,True,"Chicago, Illinois"
+201,2130 S Christiana Ave 60623,s10201,v10201,Abandoned,False,"Chicago, Illinois"
+202,26 E 101st Pl 60628,s10202,v10202,Abandoned,False,"Chicago, Illinois"
+203,56 E 101st Pl 60628,s10203,v10203,Owned,False,"Chicago, Illinois"
+204,6430 S Rhodes Ave 60637,s10204,v10204,Abandoned,False,"Chicago, Illinois"
+205,6426 S St Lawrence Ave 60637,s10205,v10205,Owned,False,"Chicago, Illinois"
+206,7818 S East End Ave 60649,s10206,v10206,Abandoned,False,"Chicago, Illinois"
+207,7837 S East End Ave 60649,s10207,v10207,Owned,False,"Chicago, Illinois"
+208,12137 S Wallace St 60628,s10208,v10208,Abandoned,False,"Chicago, Illinois"
+209,12152 S Wallace St 60628,s10209,v10209,Owned,False,"Chicago, Illinois"
+210,922 W 54th Pl 60609,s10210,v10210,Abandoned,False,"Chicago, Illinois"
+211,2541 W Thomas St 60622,s10211,v10211,Owned,False,"Chicago, Illinois"
+212,10757 S Union Ave 60628,s10212,v10212,Owned,False,"Chicago, Illinois"
+213,6730 S Paxton Ave 60649,s10213,v10213,Abandoned,False,"Chicago, Illinois"
+214,7339 S University Ave 60619,s10214,v10214,Abandoned,False,"Chicago, Illinois"
+215,7306 S University Ave 60619,s10215,v10215,Owned,False,"Chicago, Illinois"
+216,1518 S Christiana Ave 60623,s10216,v10216,Abandoned,False,"Chicago, Illinois"
+217,2525 S Lawndale Ave 60623,s10217,v10217,Owned,False,"Chicago, Illinois"
+218,2440 S Millard Ave 60623,s10218,v10218,Owned,False,"Chicago, Illinois"
+219,8738 S Wabash Ave 60619,s10219,v10219,Abandoned,False,"Chicago, Illinois"
+220,8818 S Michigan Ave 60619,s10220,v10220,Owned,False,"Chicago, Illinois"
+221,9754 S Ave M 60617,s10221,v10221,Owned,True,"Chicago, Illinois"
+222,7634 S Ada St 60620,s10222,v10222,Abandoned,False,"Chicago, Illinois"
+223,9857 S Charles St 60643,s10223,v10223,Owned,False,"Chicago, Illinois"
+224,2038 E 73rd St 60649,s10224,v10224,Abandoned,False,"Chicago, Illinois"
+225,7405 S Merrill Ave 60649,s10225,v10225,Owned,False,"Chicago, Illinois"
+226,7344 S Paxton Ave 60649,s10226,v10226,Owned,False,"Chicago, Illinois"
+227,12456 S Eggleston Ave 60628,s10227,v10227,Abandoned,False,"Chicago, Illinois"
+228,12504 S Stewart Ave 60628,s10228,v10228,Owned,False,"Chicago, Illinois"
+229,12446 S Harvard Ave 60628,s10229,v10229,Owned,True,"Chicago, Illinois"
+230,8532 S Wabash Ave 60619,s10230,v10230,Abandoned,False,"Chicago, Illinois"
+231,8553 S Wabash Ave 60619,s10231,v10231,Owned,True,"Chicago, Illinois"
+232,12452 S Eggleston Ave 60628,s10232,v10232,Abandoned,False,"Chicago, Illinois"
+233,12458 S Normal Ave 60628,s10233,v10233,Owned,False,"Chicago, Illinois"
+234,1214 W 109th St 60643,s10234,v10234,Abandoned,False,"Chicago, Illinois"
+235,11841 S Union Ave 60628,s10235,v10235,Abandoned,False,"Chicago, Illinois"
+236,11811 S Emerald Ave 60628,s10236,v10236,Owned,False,"Chicago, Illinois"
+237,12236 S Yale Ave 60628,s10237,v10237,Abandoned,False,"Chicago, Illinois"
+238,12206 S Yale Ave 60628,s10238,v10238,Owned,False,"Chicago, Illinois"
+239,7917 S Euclid Ave 60617,s10239,v10239,Abandoned,False,"Chicago, Illinois"
+240,9219 S Green St 60620,s10240,v10240,Owned,False,"Chicago, Illinois"
+241,4952 W Ohio St 60644,s10241,v10241,Abandoned,False,"Chicago, Illinois"
+242,4856 W Ferdinand St 60644,s10242,v10242,Owned,False,"Chicago, Illinois"
+243,7337 S Green St 60621,s10243,v10243,Abandoned,False,"Chicago, Illinois"
+244,12435 S Parnell Ave 60628,s10244,v10244,Abandoned,False,"Chicago, Illinois"
+245,507 W 125th St 60628,s10245,v10245,Owned,False,"Chicago, Illinois"
+246,12427 S Normal Ave 60628,s10246,v10246,Owned,False,"Chicago, Illinois"
+247,3518 W Polk St 60624,s10247,v10247,Abandoned,False,"Chicago, Illinois"
+248,2653 W Lithuanian Plaza Ct 60629,s10248,v10248,Abandoned,False,"Chicago, Illinois"
+249,6830 S Talman Ave 60629,s10249,v10249,Owned,False,"Chicago, Illinois"
+250,12431 S Eggleston Ave 60628,s10250,v10250,Abandoned,False,"Chicago, Illinois"
+251,12420 S Stewart Ave 60628,s10251,v10251,Owned,False,"Chicago, Illinois"
+252,12450 S Stewart Ave 60628,s10252,v10252,Abandoned,False,"Chicago, Illinois"
+253,12434 S Normal Ave 60628,s10253,v10253,Owned,False,"Chicago, Illinois"
+254,12214 S Harvard Ave 60628,s10254,v10254,Owned,False,"Chicago, Illinois"
+255,12437 S Parnell Ave 60628,s10255,v10255,Abandoned,False,"Chicago, Illinois"
+256,12353 S Parnell Ave 60628,s10256,v10256,Owned,False,"Chicago, Illinois"
+257,7638 S Merrill Ave 60649,s10257,v10257,Abandoned,False,"Chicago, Illinois"
+258,7632 S Merrill Ave 60649,s10258,v10258,Owned,False,"Chicago, Illinois"
+259,12440 S Parnell Ave 60628,s10259,v10259,Abandoned,False,"Chicago, Illinois"
+260,12416 S Normal Ave 60628,s10260,v10260,Owned,False,"Chicago, Illinois"
+261,12457 S Eggleston Ave 60628,s10261,v10261,Abandoned,False,"Chicago, Illinois"
+262,12454 S Parnell Ave 60628,s10262,v10262,Owned,False,"Chicago, Illinois"
+263,6754 S Marshfield Ave 60636,s10263,v10263,Abandoned,False,"Chicago, Illinois"
+264,6841 S Paulina St 60636,s10264,v10264,Owned,False,"Chicago, Illinois"
+265,7148 S Winchester Ave 60636,s10265,v10265,Abandoned,False,"Chicago, Illinois"
+266,7006 S Wolcott Ave 60636,s10266,v10266,Owned,False,"Chicago, Illinois"
+267,8057 S Houston Ave 60617,s10267,v10267,Abandoned,False,"Chicago, Illinois"
+268,3012 E 81st St 60617,s10268,v10268,Owned,False,"Chicago, Illinois"
+269,8105 S Commercial Ave 60617,s10269,v10269,Owned,True,"Chicago, Illinois"
+270,5231 S Indiana Ave 60615,s10270,v10270,Abandoned,False,"Chicago, Illinois"
+271,5237 S Indiana Ave 60615,s10271,v10271,Abandoned,False,"Chicago, Illinois"
+272,8525 S Rhodes Ave 60619,s10272,v10272,Owned,False,"Chicago, Illinois"
+273,7835 S Sangamon St 60620,s10273,v10273,Abandoned,False,"Chicago, Illinois"
+274,7814 S Morgan St 60620,s10274,v10274,Owned,False,"Chicago, Illinois"
+275,6758 S Calumet Ave 60637,s10275,v10275,Abandoned,False,"Chicago, Illinois"
+276,6728 S Prairie Ave 60637,s10276,v10276,Owned,False,"Chicago, Illinois"
+277,114 W 113th Pl 60628,s10277,v10277,Abandoned,False,"Chicago, Illinois"
+278,127 W 113th Pl 60628,s10278,v10278,Owned,False,"Chicago, Illinois"
+279,5639 S May St 60621,s10279,v10279,Abandoned,False,"Chicago, Illinois"
+280,5648 S May St 60621,s10280,v10280,Owned,False,"Chicago, Illinois"
+281,311 W 106th St,s10281,v10281,Abandoned,False,"Chicago, Illinois"
+282,6928 S Maplewood Ave 60629,s10282,v10282,Owned,False,"Chicago, Illinois"
+283,1010 W 103rd St 60643,s10283,v10283,Abandoned,False,"Chicago, Illinois"
+284,1013 W 103rd St 60643,s10284,v10284,Owned,False,"Chicago, Illinois"
+285,12022 S Lafayette Ave 60628,s10285,v10285,Abandoned,False,"Chicago, Illinois"
+286,12050 S Lafayette Ave 60628,s10286,v10286,Owned,False,"Chicago, Illinois"
+287,818 S Karlov Ave 60624,s10287,v10287,Abandoned,False,"Chicago, Illinois"
+288,942 W 71st St 60621,s10288,v10288,Abandoned,False,"Chicago, Illinois"
+289, 7115 S Morgan S 60621,s10289,v10289,Owned,False,"Chicago, Illinois"
+290,657 W 117th Pl 60628,s10290,v10290,Abandoned,False,"Chicago, Illinois"
+291,736 W 117th Pl 60628,s10291,v10291,Owned,False,"Chicago, Illinois"
+292,1546 S Keeler Ave 60623,s10292,v10292,Abandoned,False,"Chicago, Illinois"
+293,1627 S Kedvale Ave 60623,s10293,v10293,Owned,False,"Chicago, Illinois"
+294,3220 W Washington Blvd 60624,s10294,v10294,Abandoned,False,"Chicago, Illinois"
+295,3128 W Warren Blvd 60612,s10295,v10295,Owned,False,"Chicago, Illinois"
+296,3329 W Washington Blvd 60624,s10296,v10296,Abandoned,False,"Chicago, Illinois"
+297,8124 S Coles Ave 60617,s10297,v10297,Abandoned,False,"Chicago, Illinois"
+298,8111 S Coles Ave 60617,s10298,v10298,Owned,False,"Chicago, Illinois"
+299,1939 W 71st St 60636,s10299,v10299,Abandoned,False,"Chicago, Illinois"
+300,7133 S Winchester Ave 60636,s10300,v10300,Owned,False,"Chicago, Illinois"
+301,6146 S Honore St 60636,s10301,v10301,Abandoned,False,"Chicago, Illinois"
+302,6153 S Wood St 60636,s10302,v10302,Owned,False,"Chicago, Illinois"
+303,7222 S Vernon Ave 60619,s10303,v10303,Abandoned,False,"Chicago, Illinois"
+304,7305 S Eberhart Ave 60619,s10304,v10304,Owned,False,"Chicago, Illinois"
+305,7121 S Perry Ave 60621,s10305,v10305,Abandoned,False,"Chicago, Illinois"
+306,7217 S Vincennes Ave 60621,s10306,v10306,Owned,False,"Chicago, Illinois"
+307,11354 S Indiana Ave 60628,s10307,v10307,Owned,False,"Chicago, Illinois"
+308,11421 S Indiana Ave 60628,s10308,v10308,Owned,False,"Chicago, Illinois"
+309,1251 S Kildare Ave 60623,s10309,v10309,Abandoned,False,"Chicago, Illinois"
+310,1407 S Tripp Ave 60623,s10310,v10310,Owned,False,"Chicago, Illinois"
+311,132 W 118th St 60628,s10311,v10311,Abandoned,False,"Chicago, Illinois"
+312,11816 S La Salle St 60628,s10312,v10312,Owned,False,"Chicago, Illinois"
+313,5951 S Elizabeth St 60636,s10313,v10313,Abandoned,False,"Chicago, Illinois"
+314,5913 S Elizabeth St 60636,s10314,v10314,Owned,False,"Chicago, Illinois"
+315,5955 S Elizabeth St 60636,s10315,v10315,Abandoned,False,"Chicago, Illinois"
+316,8305 S Burley Ave 60617,s10316,v10316,Abandoned,False,"Chicago, Illinois"
+317,8410 Old U.S. 41 60617,s10317,v10317,Owned,False,"Chicago, Illinois"
+318,7650 S May St 60620,s10318,v10318,Abandoned,False,"Chicago, Illinois"
+319,7631 S May St 60620,s10319,v10319,Owned,False,"Chicago, Illinois"
+320,1135 E 85th St 60619,s10320,v10320,Owned,False,"Chicago, Illinois"
+321,7420 S Kenwood Ave 60619,s10321,v10321,Abandoned,False,"Chicago, Illinois"
+322,7412 S Kenwood Ave 60619,s10322,v10322,Owned,False,"Chicago, Illinois"
+323,7444 S Champlain Ave 60619,s10323,v10323,Abandoned,False,"Chicago, Illinois"
+324,7413 S St Lawrence Ave 60619,s10324,v10324,Owned,False,"Chicago, Illinois"
+325,8742 S Constance Ave 60617,s10325,v10325,Abandoned,False,"Chicago, Illinois"
+326,8720 S Bennett Ave 60617,s10326,v10326,Owned,False,"Chicago, Illinois"
+327,9418 S Justine St 60620,s10327,v10327,Owned,False,"Chicago, Illinois"
+328,7119 S Ellis Ave 60619,s10328,v10328,Abandoned,False,"Chicago, Illinois"
+329,10616 S Lafayette Ave 60628,s10329,v10329,Abandoned,False,"Chicago, Illinois"
+330,10530 S Lafayette Ave 60628,s10330,v10330,Owned,False,"Chicago, Illinois"
+331,5536 S Wolcott Ave 60636,s10331,v10331,Abandoned,False,"Chicago, Illinois"
+332,5644 S Winchester Ave 60636,s10332,v10332,Owned,False,"Chicago, Illinois"
+333,6714 S Morgan St 60621,s10333,v10333,Abandoned,False,"Chicago, Illinois"
+334,6828 S Green St 60621,s10334,v10334,Owned,False,"Chicago, Illinois"
+335,7823 S Sawyer Ave 60652,s10335,v10335,Abandoned,False,"Chicago, Illinois"
+336,7829 S Spaulding Ave 60652,s10336,v10336,Owned,False,"Chicago, Illinois"
+337,7838 S Spaulding Ave 60652,s10337,v10337,Owned,True,"Chicago, Illinois"
+338,7440 S Ellis Ave 60619,s10338,v10338,Abandoned,False,"Chicago, Illinois"
+339,904 E 76th St 60619,s10339,v10339,Owned,False,"Chicago, Illinois"
+340,822 N Fairfield Ave 60622,s10340,v10340,Abandoned,False,"Chicago, Illinois"
+341,936 N Washtenaw Ave 60622,s10341,v10341,Owned,False,"Chicago, Illinois"
+342,10838 S Sangamon St 60643,s10342,v10342,Owned,False,"Chicago, Illinois"
+343,8019 S Escanaba Ave 60617,s10343,v10343,Abandoned,False,"Chicago, Illinois"
+344,115 W 108th St 60628,s10344,v10344,Abandoned,False,"Chicago, Illinois"
+345,46 W 108th Pl 60628,s10345,v10345,Owned,False,"Chicago, Illinois"
+346,4856 S Winchester Ave 60609,s10346,v10346,Abandoned,False,"Chicago, Illinois"
+347,8510 S St Lawrence Ave 60619,s10347,v10347,Owned,False,"Chicago, Illinois"
+348,7912 S Bishop St 60620 ,s10348,v10348,Abandoned,False,"Chicago, Illinois"
+349,7926 S Justine St 60620,s10349,v10349,Owned,False,"Chicago, Illinois"
+350,10649 S Buffalo Ave 60617,s10350,v10350,Abandoned,False,"Chicago, Illinois"
+351,10532 S Green Bay Ave 60617,s10351,v10351,Owned,False,"Chicago, Illinois"
+352,7016 S Paulina St 60636,s10352,v10352,Abandoned,False,"Chicago, Illinois"
+353,1821 W 71st St 60636,s10353,v10353,Owned,False,"Chicago, Illinois"
+354,514 W 80th St 60620,s10354,v10354,Abandoned,False,"Chicago, Illinois"
+355,4353 W Crystal St 60651,s10355,v10355,Abandoned,False,"Chicago, Illinois"
+356,5212 S Morgan St 60609,s10356,v10356,Owned,False,"Chicago, Illinois"
+357,6758 S Winchester Ave 60636,s10357,v10357,Abandoned,False,"Chicago, Illinois"
+358,124 N Laramie Ave 60644,s10358,v10358,Abandoned,False,"Chicago, Illinois"
+359,5215 W Washington Blvd 60644,s10359,v10359,Owned,False,"Chicago, Illinois"
+360,5920 S Marshfield Ave 60636,s10360,v10360,Abandoned,False,"Chicago, Illinois"
+361,6008 S Marshfield Ave 60636,s10361,v10361,Owned,False,"Chicago, Illinois"
+362,738 E 103rd Pl 60628,s10362,v10362,Abandoned,False,"Chicago, Illinois"
+363,10454 S Corliss Ave 60628,s10363,v10363,Owned,False,"Chicago, Illinois"
+364,6221 S May St 60621,s10364,v10364,Abandoned,False,"Chicago, Illinois"
+365,7416 S Campbell Ave 60629,s10365,v10365,Abandoned,False,"Chicago, Illinois"
+366,7337 S Campbell Ave 60629,s10366,v10366,Owned,False,"Chicago, Illinois"
+367,4525 S Hermitage Ave 60609,s10367,v10367,Abandoned,False,"Chicago, Illinois"
+368,4416 S Honore St 60609,s10368,v10368,Owned,False,"Chicago, Illinois"
+369,4755 S Wolcott Ave 60609,s10369,v10369,Owned,False,"Chicago, Illinois"
+370,6343 S Justine St 60636,s10370,v10370,Abandoned,False,"Chicago, Illinois"
+371,6530 S Marshfield Ave 60636,s10371,v10371,Owned,False,"Chicago, Illinois"
+372,1146 W 112th St 60643,s10372,v10372,Abandoned,False,"Chicago, Illinois"
+373,11323 S May St 60643,s10373,v10373,Owned,False,"Chicago, Illinois"
+374,1937 W 71st St 60636,s10374,v10374,Abandoned,False,"Chicago, Illinois"
+375,7132 S Winchester Ave 60636,s10375,v10375,Owned,False,"Chicago, Illinois"
+376,5435 S Damen Ave 60609,s10376,v10376,Abandoned,False,"Chicago, Illinois"
+377,5418 S Damen Ave 60609,s10377,v10377,Owned,False,"Chicago, Illinois"
+378,2323 W Warren Blvd 60612,s10378,v10378,Abandoned,False,"Chicago, Illinois"
+379,6107 S Morgan St 60621,s10379,v10379,Abandoned,False,"Chicago, Illinois"
+380,6650 S Wood St 60636,s10380,v10380,Abandoned,False,"Chicago, Illinois"
+381,6618 S Wood St 60636,s10381,v10381,Owned,False,"Chicago, Illinois"
+382,6611 S Wood St 60636,s10382,v10382,Owned,False,"Chicago, Illinois"
+383,6611 S Hermitage Ave 60636,s10383,v10383,Owned,False,"Chicago, Illinois"
+384,6631 S Maplewood Ave 60629,s10384,v10384,Abandoned,False,"Chicago, Illinois"
+385,6617 S Maplewood Ave 60629,s10385,v10385,Owned,False,"Chicago, Illinois"
+386,9239 S Harper Ave 60619,s10386,v10386,Abandoned,False,"Chicago, Illinois"
+387,9238 S Harper Ave 60619,s10387,v10387,Owned,False,"Chicago, Illinois"
+388,6335 S Hermitage Ave 60636,s10388,v10388,Abandoned,False,"Chicago, Illinois"
+389,6412 S Marshfield Ave 60636,s10389,v10389,Owned,False,"Chicago, Illinois"
+390,1412 N Luna Ave 60651,s10390,v10390,Abandoned,False,"Chicago, Illinois"
+391,6056 S Wolcott Ave 60636,s10391,v10391,Abandoned,False,"Chicago, Illinois"
+392,6050 S Wolcott Ave 60636,s10392,v10392,Owned,True,"Chicago, Illinois"
+393,1541 N Lotus Ave 60651,s10393,v10393,Abandoned,False,"Chicago, Illinois"
+394,1528 N Lotus Ave 60651,s10394,v10394,Owned,False,"Chicago, Illinois"
+395,6219 S May St 60621,s10395,v10395,Abandoned,False,"Chicago, Illinois"
+396,6338 S May St 60621,s10396,v10396,Owned,False,"Chicago, Illinois"
+397,1431 N Lotus Ave 60651,s10397,v10397,Abandoned,False,"Chicago, Illinois"
+398,1422 N Lotus Ave 60651,s10398,v10398,Owned,False,"Chicago, Illinois"
+399,1411 N Lotus Ave 60651,s10399,v10399,Owned,False,"Chicago, Illinois"
+400,1431 N Luna Ave 60651,s10400,v10400,Abandoned,False,"Chicago, Illinois"
+401,2906 E 77th St 60649,s10401,v10401,Abandoned,False,"Chicago, Illinois"
+402,2835 E 76th Pl 60649,s10402,v10402,Owned,False,"Chicago, Illinois"
+403,2829 E 76th Pl 60649,s10403,v10403,Owned,False,"Chicago, Illinois"
+404,8830 S Wabash Ave 60619,s10404,v10404,Abandoned,False,"Chicago, Illinois"
+405,8837 S Wabash Ave 60619,s10405,v10405,Owned,False,"Chicago, Illinois"
+406,6610 S Evans Ave 60637,s10406,v10406,Abandoned,False,"Chicago, Illinois"
+407,6728 S Evans Ave 60637,s10407,v10407,Owned,False,"Chicago, Illinois"
+408,7122 S Champlain Ave 60619,s10408,v10408,Abandoned,False,"Chicago, Illinois"
+409,7218 S Champlain Ave 60619,s10409,v10409,Abandoned,False,"Chicago, Illinois"
+410,7130 S Ingleside Ave 60619,s10410,v10410,Owned,False,"Chicago, Illinois"
+411,508 N Monticello Ave 60624,s10411,v10411,Abandoned,False,"Chicago, Illinois"
+412,7955 S Coles Ave 60617,s10412,v10412,Abandoned,False,"Chicago, Illinois"
+413,3058 E 79th Pl 60617,s10413,v10413,Owned,False,"Chicago, Illinois"
+414,8319 S South Shore Dr 60617,s10414,v10414,Owned,False,"Chicago, Illinois"
+415,1438 N Waller Ave 60651,s10415,v10415,Abandoned,False,"Chicago, Illinois"
+416,1424 N Waller Ave 60651,s10416,v10416,Owned,False,"Chicago, Illinois"
+417,1724 N Austin Ave 60639,s10417,v10417,Abandoned,False,"Chicago, Illinois"
+418,1644 N Austin Ave 60639,s10418,v10418,Owned,False,"Chicago, Illinois"
+419,6709 N Bosworth Ave 60626,s10419,v10419,Abandoned,False,"Chicago, Illinois"
+420,6733 S Carpenter St 60621,s10420,v10420,Owned,False,"Chicago, Illinois"
+421,2659 N Mason Ave 60639,s10421,v10421,Abandoned,False,"Chicago, Illinois"
+422,2658 N Mason Ave 60639,s10422,v10422,Owned,False,"Chicago, Illinois"
+423,2638 N Mason Ave 60639,s10423,v10423,Owned,True,"Chicago, Illinois"
+424,939 N Massasoit Ave 60651,s10424,v10424,Abandoned,False,"Chicago, Illinois"
+425,936 N Massasoit Ave 60651,s10425,v10425,Owned,False,"Chicago, Illinois"
+426,1122 N Waller Ave 60651,s10426,v10426,Owned,False,"Chicago, Illinois"
+427,2806 S Avers Ave 60623,s10427,v10427,Abandoned,False,"Chicago, Illinois"
+428,12047 S Lowe Ave 60628,s10428,v10428,Abandoned,False,"Chicago, Illinois"
+429,1448 N Luna Ave 60651,s10429,v10429,Owned,False,"Chicago, Illinois"
+430,8204 S Muskegon Ave 60617,s10430,v10430,Abandoned,False,"Chicago, Illinois"
+431,8229 S Muskegon Ave 60617,s10431,v10431,Owned,False,"Chicago, Illinois"
+432,5235 S Indiana Ave 60615,s10432,v10432,Abandoned,False,"Chicago, Illinois"
+433,1235 W Garfield Blvd 60636,s10433,v10433,Abandoned,False,"Chicago, Illinois"
+434,5253 S Racine Ave 60609,s10434,v10434,Owned,False,"Chicago, Illinois"
+435,4121 W Arthington St 60624,s10435,v10435,Abandoned,False,"Chicago, Illinois"
+436,824 S Kedvale Ave 60624,s10436,v10436,Owned,False,"Chicago, Illinois"
+437,8233 S Houston Ave 60617,s10437,v10437,Abandoned,False,"Chicago, Illinois"
+438,8255 S Commercial Ave 60617,s10438,v10438,Owned,False,"Chicago, Illinois"
+439,1308 E 72nd St 60619,s10439,v10439,Abandoned,False,"Chicago, Illinois"
+440,1311 E 72nd Pl 60619,s10440,v10440,Owned,False,"Chicago, Illinois"
+441,6448 S Eberhart Ave 60637,s10441,v10441,Owned,False,"Chicago, Illinois"
+442,4747 W Van Buren St 60644,s10442,v10442,Abandoned,False,"Chicago, Illinois"
+443,7536 S May St 60620,s10443,v10443,Owned,False,"Chicago, Illinois"
+444,1221 E 72nd Pl 60619,s10444,v10444,Abandoned,False,"Chicago, Illinois"
+445,1222 E 72nd Pl 60619,s10445,v10445,Owned,False,"Chicago, Illinois"
+446,8029 S Laflin St 60620,s10446,v10446,Owned,False,"Chicago, Illinois"
+447,1750 W Steuben St 60643,s10447,v10447,Abandoned,False,"Chicago, Illinois"
+448,1751 W Steuben St 60643,s10448,v10448,Owned,False,"Chicago, Illinois"
+449,5659 S Kildare Ave 60629,s10449,v10449,Abandoned,False,"Chicago, Illinois"
+450,5653 S Kildare Ave 60629,s10450,v10450,Owned,False,"Chicago, Illinois"
+451,2026 W Coulter St 60608,s10451,v10451,Abandoned,False,"Chicago, Illinois"
+452,2111 W Coulter St 60608,s10452,v10452,Owned,False,"Chicago, Illinois"
+453,11657 S Bell Ave 60643,s10453,v10453,Owned,False,"Chicago, Illinois"
+454,1837 N Albany Ave 60647,s10454,v10454,Abandoned,False,"Chicago, Illinois"
+455,1829 N Albany Ave 60647,s10455,v10455,Owned,False,"Chicago, Illinois"
+456,5207 S Princeton Ave 60609,s10456,v10456,Abandoned,False,"Chicago, Illinois"
+457,5307 S Princeton Ave 60609,s10457,v10457,Owned,False,"Chicago, Illinois"
+458,831 N Keystone Ave 60651,s10458,v10458,Owned,False,"Chicago, Illinois"
+459,8455 S Burnham Ave 60617,s10459,v10459,Abandoned,False,"Chicago, Illinois"
+460,8448 S Burnham Ave 60617,s10460,v10460,Owned,False,"Chicago, Illinois"
+461,8348 S Green St 60620,s10461,v10461,Abandoned,False,"Chicago, Illinois"
+462,4629 S Honore St 60609,s10462,v10462,Abandoned,False,"Chicago, Illinois"
+463,6925 S Stewart Ave 60621,s10463,v10463,Abandoned,False,"Chicago, Illinois"
+464,8227 S Aberdeen St 60620,s10464,v10464,Owned,False,"Chicago, Illinois"
+465,8247 S Aberdeen St 60620,s10465,v10465,Owned,False,"Chicago, Illinois"
+466,2102 W Garfield Blvd 60609,s10466,v10466,Abandoned,False,"Chicago, Illinois"
+467,2044 W Garfield Blvd 60609,s10467,v10467,Owned,False,"Chicago, Illinois"
+468,9128 S Yates Blvd 60617,s10468,v10468,Abandoned,False,"Chicago, Illinois"
+469,9133 S Yates Blvd 60617,s10469,v10469,Owned,False,"Chicago, Illinois"
+470,9338 S Manistee Ave 60617,s10470,v10470,Owned,True,"Chicago, Illinois"
+471,650 W 81st St 60620,s10471,v10471,Abandoned,False,"Chicago, Illinois"
+472,6029 S May St 60621,s10472,v10472,Abandoned,False,"Chicago, Illinois"
+473,6026 S May St 60621,s10473,v10473,Abandoned,False,"Chicago, Illinois"
+474,3522 S Damen Ave 60609,s10474,v10474,Owned,False,"Chicago, Illinois"
+475,4155 S Maplewood Ave 60632,s10475,v10475,Abandoned,False,"Chicago, Illinois"
+476,4117 S Maplewood Ave 60632,s10476,v10476,Owned,False,"Chicago, Illinois"
+477,8221 S Carpenter St 60620,s10477,v10477,Owned,False,"Chicago, Illinois"
+478,1230 N Harding Ave 60651,s10478,v10478,Abandoned,False,"Chicago, Illinois"
+479,1745 W 105th Pl 60643,s10479,v10479,Owned,False,"Chicago, Illinois"
+480,2121 W 72nd St 60636,s10480,v10480,Abandoned,False,"Chicago, Illinois"
+481,2126 W 72nd St 60636,s10481,v10481,Owned,False,"Chicago, Illinois"
+482,2130 W 72nd St 60636,s10482,v10482,Owned,False,"Chicago, Illinois"
+483,4906 W Erie St 60644,s10483,v10483,Abandoned,False,"Chicago, Illinois"
+484,4911 W Erie St 60644,s10484,v10484,Owned,False,"Chicago, Illinois"
+485,3010 N Lotus Ave 60641,s10485,v10485,Abandoned,False,"Chicago, Illinois"
+486,3004 N Lotus Ave 60641,s10486,v10486,Owned,False,"Chicago, Illinois"
+487,8127 S Burnham Ave 60617,s10487,v10487,Abandoned,False,"Chicago, Illinois"
+488,8119 S Burnham Ave 60617,s10488,v10488,Owned,False,"Chicago, Illinois"
+489,6505 S Peoria St 60621,s10489,v10489,Abandoned,False,"Chicago, Illinois"
+490,6518 S Peoria St 60621,s10490,v10490,Owned,False,"Chicago, Illinois"
+491,5805 S Damen Ave 60636,s10491,v10491,Abandoned,False,"Chicago, Illinois"
+492,8416 S Green St 60620,s10492,v10492,Owned,False,"Chicago, Illinois"
+493,3312 E 91st St 60617,s10493,v10493,Abandoned,False,"Chicago, Illinois"
+494,9142 S Avalon Ave 60619,s10494,v10494,Abandoned,False,"Chicago, Illinois"
+495,6520 S Eberhart Ave 60637,s10495,v10495,Abandoned,False,"Chicago, Illinois"
+496,6531 S Eberhart Ave 60637,s10496,v10496,Owned,False,"Chicago, Illinois"
+497,4342 W Wilcox St 60624,s10497,v10497,Owned,False,"Chicago, Illinois"
+498,5331 S Honore St 60609,s10498,v10498,Abandoned,False,"Chicago, Illinois"
+499,3641 W Douglas Blvd 60623,s10499,v10499,Abandoned,False,"Chicago, Illinois"
+500,1438 S Millard Ave 60623,s10500,v10500,Owned,False,"Chicago, Illinois"
+501,3319 ST PAUL ST 46237,s2001,v20001,Abandoned,False,Indianapolis
+502,1126 N Dearborn St 46201,s2002,v20002,Owned,False,Indianapolis
+503,2709 N RITTER AVE 46218,s2003,v20003,Abandoned,False,Indianapolis
+504,23 S Bradley Ave 46201,s2004,v20004,Abandoned,False,Indianapolis
+505,58 S BRADLEY AVE 46201,s2005,v20005,Owned,False,Indianapolis
+506,2940 N Delaware St 46205,s2006,v20006,Owned,False,Indianapolis
+507,1040 HARLAN ST 46203,s2007,v20007,Abandoned,False,Indianapolis
+508,1811 Hoyt Ave 46203,s2008,v20008,Abandoned,False,Indianapolis
+509,1025 Dawson St 46203,s2009,v20009,Owned,False,Indianapolis
+510,305 N SHERMAN DR 46201,s2010,v20010,Abandoned,False,Indianapolis
+511,735 N Colorado Ave 46201,s2011,v20011,Abandoned,False,Indianapolis
+512,22 S BRADLEY AVE 46201,s2012,v20012,Owned,True,Indianapolis
+513,2518 E 16th St 46201,s2013,v20013,Abandoned,False,Indianapolis
+514,3834 WINTHROP AVE 46205,s2014,v20014,Abandoned,False,Indianapolis
+515,3860 Winthrop Ave 46205,s2015,v20015,Owned,False,Indianapolis
+516,1115 N Bancroft St 46201,s2016,v20016,Owned,False,Indianapolis
+517,4532 NORWALDO AVE 46205,s2017,v20017,Abandoned,False,Indianapolis
+518,544 N TEMPLE AVE 46201,s2018,v20018,Abandoned,False,Indianapolis
+519,3219 RUCKLE ST 46205,s2019,v20019,Owned,False,Indianapolis
+520,3245 RUCKLE ST 46205,s2020,v20020,Owned,False,Indianapolis
+521,4501 Crittenden Ave 46205,s2021,v20021,Abandoned,False,Indianapolis
+522,2921 BOULEVARD PL 46208,s2022,v20022,Abandoned,False,Indianapolis
+523,2532 ENGLISH AVE 46201,s2023,v20023,Abandoned,False,Indianapolis
+524,4062 Byram Ave 46208,s2024,v20024,Owned,False,Indianapolis
+525,2433 Highland Pl 46208,s2025,v20025,Owned,False,Indianapolis
+526,1418 W 28TH ST 46208,s2026,v20026,Abandoned,False,Indianapolis
+527,108 N Chester Ave 46201,s2027,v20027,Owned,False,Indianapolis
+528,3725 N Chester Ave 46218,s2028,v20028,Abandoned,False,Indianapolis
+529,1649 N TEMPLE AVE 46218,s2029,v20029,Abandoned,False,Indianapolis
+530,4411 Ralston Ave 46205,s2030,v20030,Owned,False,Indianapolis
+531,108 N GLADSTONE AVE 46201,s2031,v20031,Abandoned,False,Indianapolis
+532,109 N GLADSTONE AVE 46201,s2032,v20032,Owned,False,Indianapolis
+533,1127 NELSON AVE 46203,s2033,v20033,Abandoned,False,Indianapolis
+534,2736 Boulevard Pl 46208,s2034,v20034,Owned,False,Indianapolis
+535,2739 Boulevard Pl 46208,s2035,v20035,Owned,False,Indianapolis
+536,3936 WINTHROP AVE 46205,s2036,v20036,Abandoned,False,Indianapolis
+537,3946 Winthrop Ave 46205,s2037,v20037,Owned,False,Indianapolis
+538,1121 N Parker Ave 46201,s2038,v20038,Abandoned,False,Indianapolis
+539,1209 N Parker Ave 46201,s2039,v20039,Owned,False,Indianapolis
+540,3019 E 13th St 46201,s2040,v20040,Owned,False,Indianapolis
+541,3632 Forest Manor Ave 46218,s2041,v20041,Owned,False,Indianapolis
+542,518 N Berwick Ave 46222,s2042,v20042,Abandoned,False,Indianapolis
+543,2518 Highland Pl 46208,s2043,v20043,Abandoned,False,Indianapolis
+544,2522 Highland Pl 46208,s2044,v20044,Owned,False,Indianapolis
+545,611 E Minnesota St 46203,s2045,v20045,Owned,False,Indianapolis
+546,1451 S Kiel Ave 46241,s2046,v20046,Abandoned,False,Indianapolis
+547,1157 N Tremont St 46222,s2047,v20047,Owned,True,Indianapolis
+548,1605 E MINNESOTA ST 46203,s2048,v20048,Abandoned,False,Indianapolis
+549,1741 S State Ave 46203,s2049,v20049,Abandoned,False,Indianapolis
+550,1526 E Naomi St 46203,s2050,v20050,Owned,False,Indianapolis
+551,3417 N CAPITOL AVE 46208,s2051,v20051,Abandoned,False,Indianapolis
+552,2921 N Sherman Dr 46218,s2052,v20052,Abandoned,False,Indianapolis
+553,928 N Arnolda Ave 46222,s2053,v20053,Owned,False,Indianapolis
+554,1521 Lawton Ave 46203,s2054,v20054,Abandoned,False,Indianapolis
+555,327 Lansdowne Rd 46234,s2055,v20055,Owned,True,Indianapolis
+556,23 Jefferson Ave 46201,s2056,v20056,Abandoned,False,Indianapolis
+557,1913 E 35th St 46218,s2057,v20057,Owned,False,Indianapolis
+558,3443 N Chester Ave 46218,s2058,v20058,Abandoned,False,Indianapolis
+559,3029 N Park Ave 46205,s2059,v20059,Owned,False,Indianapolis
+560,1122 N KEYSTONE AVE 46201,s2060,v20060,Abandoned,False,Indianapolis
+561,1015 N Tacoma Ave 46201,s2061,v20061,Owned,False,Indianapolis
+562,237 N Randolph St 46201,s2062,v20062,Abandoned,False,Indianapolis
+563,2855 N Gladstone Ave 46218,s2063,v20063,Abandoned,False,Indianapolis
+564,1320 N Olney St 46201,s2064,v20064,Owned,False,Indianapolis
+565,1432 N Olney St 46201,s2065,v20065,Owned,False,Indianapolis
+566,2729 S Lyons Ave 46241,s2066,v20066,Abandoned,False,Indianapolis
+567,3120 Graceland Ave 46208,s2067,v20067,Abandoned,False,Indianapolis
+568,3151 Graceland Ave 46208,s2068,v20068,Owned,False,Indianapolis
+569,349 Villa Ave 46201,s2069,v20069,Abandoned,False,Indianapolis
+570,3323 E Vermont St 46201,s2070,v20070,Owned,False,Indianapolis
+571,2845 N Capitol Ave 46208,s2071,v20071,Owned,False,Indianapolis
+572,2901 N COLORADO AVE 46218,s2072,v20072,Abandoned,False,Indianapolis
+573,3322 Graceland Ave 46208,s2073,v20073,Abandoned,False,Indianapolis
+574,3315 Graceland Ave 46208,s2074,v20074,Owned,False,Indianapolis
+575,3171 N Capitol Ave 46208,s2075,v20075,Owned,False,Indianapolis
+576,3721 SCHOFIELD AVE 46218 ,s2076,v20076,Abandoned,False,Indianapolis
+577,1135 N Holmes Ave 46222,s2077,v20077,Owned,False,Indianapolis
+578,60 N CHESTER AVE 46201,s2078,v20078,Owned,False,Indianapolis
+579,2267 Wheeler St 46218,s2079,v20079,Abandoned,False,Indianapolis
+580,2124 N Harding St 46202,s2080,v20080,Abandoned,False,Indianapolis
+581,3316 Wallace Ave 46218,s2081,v20081,Abandoned,False,Indianapolis
+582,5132 W Deborah St 46224,s2082,v20082,Owned,True,Indianapolis
+583,3164 Cossell Dr 46224,s2083,v20083,Owned,False,Indianapolis
+584,3256 E 34th St 46218,s2084,v20084,Abandoned,False,Indianapolis
+585,1151 EUGENE ST 46208,s2085,v20085,Abandoned,False,Indianapolis
+586,1145 EUGENE ST 46208,s2086,v20086,Abandoned,False,Indianapolis
+587,435 Orange St 46225,s2087,v20087,Owned,False,Indianapolis
+588,420 Orange St 46225,s2088,v20088,Owned,False,Indianapolis
+589,1252 Wright St 46203,s2089,v20089,Owned,False,Indianapolis
+590,630 E PERRY ST 46227,s2090,v20090,Abandoned,False,Indianapolis
+591,1415 N LINWOOD AVE 46201,s2091,v20091,Abandoned,False,Indianapolis
+592,1432 N Drexel Ave 46201,s2092,v20092,Owned,False,Indianapolis
+593, 4601 E 16th St 46201,s2093,v20093,Owned,False,Indianapolis
+594,818 W 27TH ST 46208,s2094,v20094,Abandoned,False,Indianapolis
+595,977 W 27th St 46208,s2095,v20095,Owned,False,Indianapolis
+596,416 KETCHAM ST 46222,s2096,v20096,Abandoned,False,Indianapolis
+597,1425 Hiatt St 46221,s2097,v20097,Owned,False,Indianapolis
+598, 1227 Mount St  46222,s2098,v20098,Abandoned,False,Indianapolis
+599,226 E Parkview Ave 46201,s2099,v20099,Owned,False,Indianapolis
+600,263 S Emerson Ave 46219,s20100,v20100,Abandoned,False,Indianapolis
+601,715 N GRANT AVE 46201,s20101,v20101,Abandoned,False,Indianapolis
+602,915 N Gladstone Ave 46201,s20102,v20102,Owned,False,Indianapolis
+603,1419 N OLNEY ST 46201,s20103,v20103,Abandoned,False,Indianapolis
+604,533 N DEARBORN ST 46201,s20104,v20104,Abandoned,False,Indianapolis
+605,626 N Dearborn St 46201,s20105,v20105,Owned,False,Indianapolis
+606,2327 E Riverside Dr 46208,s20106,v20106,Owned,False,Indianapolis
+607,1301 W 32nd St 46208,s20107,v20107,Abandoned,False,Indianapolis
+608,661 E 25th St 46205,s20108,v20108,Owned,False,Indianapolis
+609,925 N DEARBORN ST 46201,s20109,v20109,Abandoned,False,Indianapolis
+610, 930 N Dearborn St  46201,s20110,v20110,Abandoned,False,Indianapolis
+611,1110 Lasalle St 46201,s20111,v20111,Owned,True,Indianapolis
+612,1115 Lasalle St 46201,s20112,v20112,Owned,False,Indianapolis
+613,340 N Colorado Ave 46201,s20113,v20113,Abandoned,False,Indianapolis
+614,421 N Colorado Ave 46201,s20114,v20114,Owned,False,Indianapolis
+615,608 Congress Ave 46208,s20115,v20115,Abandoned,False,Indianapolis
+616,652 Congress Ave 46208,s20116,v20116,Owned,False,Indianapolis
+617,3036 N Olney St 46218,s20117,v20117,Abandoned,False,Indianapolis
+618,3019 N Olney St 46218,s20118,v20118,Owned,False,Indianapolis
+619,1253 N HOLMES AVE 46222,s20119,v20119,Abandoned,False,Indianapolis
+620,1216 N Holmes Ave 46222,s20120,v20120,Owned,False,Indianapolis
+621,623 EUGENE ST 46208,s20121,v20121,Abandoned,False,Indianapolis
+622,222 Jefferson Ave 46201,s20122,v20122,Owned,False,Indianapolis
+623,333 N Walcott St 46201,s20123,v20123,Owned,False,Indianapolis
+624,2120 CARROLLTON AVE 46202,s20124,v20124,Abandoned,False,Indianapolis
+625,2109 CARROLLTON AVE 46202,s20125,v20125,Owned,False,Indianapolis
+626,2414 SHELDON ST 46218,s20126,v20126,Abandoned,False,Indianapolis
+627,954 W 33rd St 46208,s20127,v20127,Owned,False,Indianapolis
+628,902 Marion Ave 46221 ,s20128,v20128,Abandoned,False,Indianapolis
+629,3639 GRACELAND AVE 46208,s20129,v20129,Abandoned,False,Indianapolis
+630,3536 Graceland Ave 46208,s20130,v20130,Owned,False,Indianapolis
+631,733 S BELLEVIEW PL 46221,s20131,v20131,Abandoned,False,Indianapolis
+632,234 N State Ave 46201,s20132,v20132,Owned,False,Indianapolis
+633,2333 Adams St 46218,s20133,v20133,Abandoned,False,Indianapolis
+634,1523 BROOKSIDE AVE 46201,s20134,v20134,Abandoned,False,Indianapolis
+635,1441 W 35th St 46208,s20135,v20135,Abandoned,False,Indianapolis
+636,3520 N Capitol Ave 46208,s20136,v20136,Owned,False,Indianapolis
+637,3534 N Capitol Ave 46208,s20137,v20137,Owned,False,Indianapolis
+638,3660 W 10TH ST 46222,s20138,v20138,Abandoned,False,Indianapolis
+639,"35 Jefferson Ave, 46201",s20139,v20139,Owned,True,Indianapolis
+640,"29 Jefferson Ave, 46201 ",s20140,v20140,Owned,False,Indianapolis
+641,"23 Jefferson Ave, 46201 ",s20141,v20141,Abandoned,False,Indianapolis
+642,3956 Cornelius Ave 46208,s20142,v20142,Owned,False,Indianapolis
+643,1146 S Randolph St 46203,s20143,v20143,Owned,False,Indianapolis
+644,3420 N Denny St 46218,s20144,v20144,Abandoned,False,Indianapolis
+645,1140 S WARMAN AVE 46221,s20145,v20145,Abandoned,False,Indianapolis
+646,40 N Bradley Ave 46201,s20146,v20146,Abandoned,False,Indianapolis
+647,309 N Denny St 46201,s20147,v20147,Owned,False,Indianapolis
+648,524 N Denny St 46201,s20148,v20148,Owned,False,Indianapolis
+649,3320 E 26TH ST 46218,s20149,v20149,Abandoned,False,Indianapolis
+650,2841 Wheeler St 46218,s20150,v20150,Owned,False,Indianapolis
+651,2827 Wheeler St 46218,s20151,v20151,Owned,False,Indianapolis
+652,1820 Gent Ave 46202,s20152,v20152,Abandoned,False,Indianapolis
+653,1220 W 19th St 46202,s20153,v20153,Owned,False,Indianapolis
+654,3266 Ruckle St 46205,s20154,v20154,Abandoned,False,Indianapolis
+655,3249 Ruckle St 46205,s20154,v20154,Owned,False,Indianapolis
+656,3215 Ruckle St 46205,s20156,v20156,Owned,False,Indianapolis
+657,549 E 32nd St 46205,s20157,v20157,Owned,False,Indianapolis
+658,1315 Lasalle St 46201,s20158,v20158,Abandoned,False,Indianapolis
+659,1222 30th St 46208,s20159,v20159,Abandoned,False,Indianapolis
+660,1038 W 30th St 46208,s20160,v20160,Owned,False,Indianapolis
+661,2742 N Gale St 46218,s20161,v20161,Owned,False,Indianapolis
+662,1848 Olive St 46203,s20162,v20162,Abandoned,False,Indianapolis
+663,1926 Houston St 46218,s20163,v20163,Owned,False,Indianapolis
+664,3283 Hovey St 46218,s20164,v20164,Owned,False,Indianapolis
+665,1801 E GIMBER ST 46203,s20165,v20165,Abandoned,False,Indianapolis
+666,1335 N BONAR AVE 46229,s20166,v20166,Abandoned,False,Indianapolis
+667,2219 E Brookside Ave 46218,s20167,v20167,Abandoned,False,Indianapolis
+668,2925 N Washington Blvd 46205,s20168,v20168,Owned,False,Indianapolis
+669,2924 N Washington Blvd 46205,s20169,v20169,Owned,False,Indianapolis
+670,2018 N Dearborn St 46218,s20170,v20170,Abandoned,False,Indianapolis
+671,1952 N Dearborn St 46218,s20171,v20171,Owned,False,Indianapolis
+672,3236 N Kenwood Ave 46208,s20172,v20172,Abandoned,False,Indianapolis
+673,3220 N Kenwood Ave 46208,s20173,v20173,Owned,False,Indianapolis
+674,305 Lasalle St 46201,s20174,v20174,Owned,False,Indianapolis
+675,305 N Addison St 46222,s20175,v20175,Abandoned,False,Indianapolis
+676,3610 N Audubon Rd 46218,s20176,v20176,Owned,False,Indianapolis
+677,615 30th St 46208,s20177,v20177,Abandoned,False,Indianapolis
+678,638 W 30th St 46208,s20178,v20178,Abandoned,False,Indianapolis
+679,629 Eugene St 46208,s20179,v20179,Owned,False,Indianapolis
+680,223 SANDERS ST 46225 ,s20180,v20180,Abandoned,False,Indianapolis
+681,408 Keystone Ave 46201,s20181,v20181,Owned,True,Indianapolis
+682,438 N Keystone Ave 46201 ,s20182,v20182,Abandoned,False,Indianapolis
+683,711 Cottage Ave 46203,s20183,v20183,Owned,False,Indianapolis
+684,710 Cottage Ave 46203,s20184,v20184,Owned,False,Indianapolis
+685,1311 W 33rd St 46208,s20184,v20184,Abandoned,False,Indianapolis
+686,1305 W 33rd St 46208,s20185,v20185,Abandoned,False,Indianapolis
+687,1328 W 33rd St 46208,s20186,v20186,Owned,False,Indianapolis
+688,421 N Colorado Ave,s20188,v20188,Owned,False,Indianapolis
+689,222 Jefferson Ave 46201,s20189,v20189,Owned,False,Indianapolis
+690,235 Jefferson Ave 46201,s20190,v20190,Abandoned,False,Indianapolis
+691,3641 N Dearborn St 46218,s20191,v20191,Abandoned,False,Indianapolis
+692,2437 N WEBSTER AVE 46219,s20192,v20192,Abandoned,False,Indianapolis
+693,6035 E 25th St 46219,s20193,v20193,Owned,False,Indianapolis
+694,6042 E 25th St 46219,s20194,v20194,Abandoned,False,Indianapolis
+695,1325 Kappes St 46221,s20195,v20195,Owned,False,Indianapolis
+696,3612 RALSTON AVE 46218,s20196,v20196,Abandoned,False,Indianapolis
+697,3453 Orchard Ave 46218,s20197,v20197,Owned,False,Indianapolis
+698,2633 E Brookside Ave 46218,s20198,v20198,Abandoned,False,Indianapolis
+699,1121 W Congress Ave 46208,s20199,v20199,Owned,False,Indianapolis
+700,343 N Bradley Ave 46201,s20200,v20200,Abandoned,False,Indianapolis
+701,4019 Carrollton Ave 46205,s20201,v20201,Owned,False,Indianapolis
+702,1420 Woodlawn Ave 46203,s20202,v20202,Owned,False,Indianapolis
+703,1349 Roache St 46208,s20203,v20203,Abandoned,False,Indianapolis
+704,1505 N Grant Ave 46201,s20204,v20204,Owned,False,Indianapolis
+705,3302 S Lyons Ave 46221,s20205,v20205,Abandoned,False,Indianapolis
+706,2804 S State Ave 46203,s20206,v20206,Abandoned,False,Indianapolis
+707,5422 SLEET DR 46237,s20207,v20207,Abandoned,False,Indianapolis
+708,5410 Sleet Dr 46237,s20208,v20208,Owned,True,Indianapolis
+709,5429 Antoneli Ln 46237,s20209,v20209,Owned,True,Indianapolis
+710,1129 E KELLY ST 46203,s20210,v20210,Abandoned,False,Indianapolis
+711,2450 N Parker Ave 46218,s20211,v20211,Abandoned,False,Indianapolis
+712,2614 N Parker Ave 46218,s20212,v20212,Owned,False,Indianapolis
+713,201 N Warman Ave 46222,s20213,v20213,Owned,False,Indianapolis
+714,2846 E 16TH ST 46201,s20214,v20214,Abandoned,False,Indianapolis
+715,3227 Broadway St 46205,s20215,v20215,Owned,False,Indianapolis
+716,219 W 31st St 46208,s20216,v20216,Abandoned,False,Indianapolis
+717,951 N SHERMAN DR 46201,s20217,v20217,Abandoned,False,Indianapolis
+718,1719 Hoyt Ave 46203,s20218,v20218,Owned,False,Indianapolis
+719,1721 Hoyt Ave 46203,s20219,v20219,Abandoned,False,Indianapolis
+720,1112 N OAKLAND AVE 46201,s20220,v20220,Abandoned,False,Indianapolis
+721,1126 N Dearborn St 46201 ,s20221,v20221,Owned,False,Indianapolis
+722,1716 Arlene Dr 46219,s20222,v20222,Abandoned,False,Indianapolis
+723,3730 N COLORADO AVE 46218,s20223,v20223,Abandoned,False,Indianapolis
+724,8209 SHIBLER DR 46219,s20224,v20224,Owned,False,Indianapolis
+725,3146 Eastern Ave 46218,s20225,v20225,Owned,False,Indianapolis
+726,1726 Medford Ave 46222,s20226,v20226,Owned,False,Indianapolis
+727,3105 N Tacoma Ave 46218,s20227,v20227,Abandoned,False,Indianapolis
+728,3701 N Tacoma Ave 46218,s20228,v20228,Abandoned,False,Indianapolis
+729,3717 N Tacoma Ave 46218,s20229,v20229,Owned,False,Indianapolis
+730,3317 Graceland Ave 46208,s20230,v20230,Owned,False,Indianapolis
+731,4123 CORNELIUS AVE 46208,s20231,v20231,Abandoned,False,Indianapolis
+732,734 N Belmont Ave 46222,s20232,v20232,Owned,False,Indianapolis
+733,743 N Belmont Ave 46222,s20233,v20233,Abandoned,False,Indianapolis
+734,1624 Spruce St 46203,s20234,v20234,Owned,False,Indianapolis
+735,1632 Spruce St 46203,s20235,v20235,Abandoned,False,Indianapolis
+736,1816 Wilcox St 46222,s20236,v20236,Owned,False,Indianapolis
+737,76 N WHITTIER PL 46219,s20237,v20237,Owned,False,Indianapolis
+738,4433 Norwaldo Ave 46205,s20238,v20238,Abandoned,False,Indianapolis
+739,2348 Lasalle St 46218,s20239,v20239,Owned,False,Indianapolis
+740,822 Arbor Ave 46221,s20240,v20240,Abandoned,False,Indianapolis
+741,635 N Oxford St 46201,s20241,v20241,Abandoned,False,Indianapolis
+742,1055 W 27th St 46208,s20242,v20242,Owned,False,Indianapolis
+743,3419 N LASALLE ST 46218,s20243,v20243,Abandoned,False,Indianapolis
+744,407 N WARMAN AVE 46222,s20244,v20244,Abandoned,False,Indianapolis
+745,3470 N Capitol Ave 46208,s20245,v20245,Owned,False,Indianapolis
+746,2465 BOND ST 46208,s20246,v20246,Abandoned,False,Indianapolis
+747,3649 N Priscilla Ct 46218,s20247,v20247,Owned,False,Indianapolis
+748,2355 Guilford Ave 46205,s20248,v20248,Abandoned,False,Indianapolis
+749,2334 Guilford Ave 46205,s20249,v20249,Owned,True,Indianapolis
+750,2318 Guilford Ave 46205,s20250,v20250,Owned,False,Indianapolis
+751,3924 Elmonte Ct 46226,s20251,v20251,Abandoned,False,Indianapolis
+752,4017 Boulevard Pl 46208,s20252,v20252,Owned,False,Indianapolis
+753,426 S Warman Ave 46222,s20253,v20253,Abandoned,False,Indianapolis
+754,3453 E 26TH ST 46218,s20254,v20254,Abandoned,False,Indianapolis
+755,437 Wallace Ave 46201,s20255,v20255,Owned,True,Indianapolis
+756,433 Wallace Ave 46201,s20256,v20256,Owned,False,Indianapolis
+757,234 N OAKLAND AVE 46201,s20257,v20257,Abandoned,False,Indianapolis
+758,219 N Oakland Ave 46201,s20258,v20258,Abandoned,False,Indianapolis
+759,42 N Oakland Ave 46201,s20259,v20259,Owned,False,Indianapolis
+760,2851 N Chester Ave 46218,s20260,v20260,Owned,False,Indianapolis
+761,2802 N Chester Ave 46218,s20261,v20261,Abandoned,False,Indianapolis
+762,1835 HOLLOWAY AVE 46218,s20262,v20262,Abandoned,False,Indianapolis
+763,1917 Holloway Ave 46218,s20263,v20263,Owned,False,Indianapolis
+764,1910 Holloway Ave 46218,s20264,v20264,Abandoned,False,Indianapolis
+765,2901 N Routiers Ave 46219,s20265,v20265,Abandoned,False,Indianapolis
+766,2926 N Boehning St 46219,s20266,v20266,Owned,False,Indianapolis
+767,1739 DAWSON ST 46203,s20267,v20267,Abandoned,False,Indianapolis
+768,1043 Villa Ave 46203,s20268,v20268,Owned,False,Indianapolis
+769,2429 Indianapolis Ave 46208,s20269,v20269,Owned,False,Indianapolis
+770,3541 APPLE ST 46203,s20270,v20270,Abandoned,False,Indianapolis
+771,1020 Villa Ave 46203,s20271,v20271,Owned,False,Indianapolis
+772,549 W 26TH ST 46208,s20272,v20272,Abandoned,True,Indianapolis
+773,9943 Catalina Dr 46235,s20273,v20273,Owned,False,Indianapolis
+774,3912 Delmont Dr 46235,s20274,v20274,Owned,False,Indianapolis
+775,554 W 28th St 46208,s20275,v20275,Abandoned,False,Indianapolis
+776,2029 Bellefontaine St 46202,s20276,v20276,Owned,False,Indianapolis
+777,2039 N LUETT AVE 46222,s20277,v20277,Abandoned,False,Indianapolis
+778,2037 N LUETT AVE 46222,s20278,v20278,Abandoned,False,Indianapolis
+779,4110 Fletcher Ave 46203,s20279,v20279,Owned,True,Indianapolis
+780,4122 FLETCHER AVE 46203,s20280,v20280,Abandoned,False,Indianapolis
+781,1414 Union St 46225,s20281,v20281,Owned,False,Indianapolis
+782,1026 S BELLEVIEW PL 46221,s20282,v20282,Abandoned,False,Indianapolis
+783,1042 S State Ave 46203,s20283,v20283,Abandoned,False,Indianapolis
+784,1525 Union St 4625,s20284,v20284,Owned,False,Indianapolis
+785,1633 Union St 46225,s20285,v20285,Owned,False,Indianapolis
+786,2816 STANDARD AVE 46221,s20286,v20286,Abandoned,False,Indianapolis
+787,4224 S Post Rd 46239,s20287,v20287,Owned,False,Indianapolis
+788,4366 N ARLINGTON AVE 46226,s20288,v20288,Abandoned,False,Indianapolis
+789,1010 W 27TH ST 46208,s20289,v20289,Abandoned,False,Indianapolis
+790,933 W 27th St 46208,s20290,v20290,Owned,False,Indianapolis
+791,948 N Holmes Ave 46222,s20291,v20291,Owned,False,Indianapolis

@@ -1,5 +1,11 @@
 BlocksDroneSim/
 .venv/
 SatellitePlaneDroneSim/
+.vscode/
+__pycache__/
+*.pyc
+*.png
+*.pt
 *.zip
 pycache/
+gds/
