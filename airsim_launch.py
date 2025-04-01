@@ -56,6 +56,7 @@ def launchAirsim():
     client.confirmConnection()
     
     # enable waiting for keyboard controls
+    #airsim_keyboard_controller.controlDroneLoop()
     airsim_find_gunshot.findGunshotLoop(client)
 
 if __name__ == '__main__':

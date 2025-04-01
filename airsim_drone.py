@@ -9,32 +9,37 @@ class Drone:
     # client = currently connected airsim multirotor client
     # sensorSpots = list of positions (Vector3r) audio listening sensors relative to center of the drone
     # vehicleName = vehicle name (should match name according to client)
-    def __init__(self, client : airsim.MultirotorClient, sensorSpots = [], vehicleName = ''):
+    # shouldSpawn = whether this vehicle should be spawned here in the script (used if not new vehicle defined in settings)
+    # spawnPosition = where to spawn (used if shouldSpawn)
+    def __init__(self, client : airsim.MultirotorClient, sensorSpots = [], vehicleName = '', shouldSpawn = False, spawnPosition = None):
         self.client = client
         self.vehicleName = vehicleName
         self.sensorSpots = sensorSpots
         self.speed_of_sound_mps = 343
+        if(shouldSpawn):
+            self.client.simAddVehicle(self.vehicleName, "simpleflight", airsim.Pose(spawnPosition))
 
     def simGetPosition(self):
         return self.client.simGetVehiclePose(self.vehicleName).position
+    
+    def simGetSensorWorldPos(self):
+        return [sensorSpot + self.simGetPosition() for sensorSpot in self.sensorSpots]
 
-    def simGetAudioTimeDifferences(self, soundEmitPoint : Vector3r):
-        pos = self.simGetPosition()
+    def simGetAudioTimes(self, soundEmitPoint : Vector3r):
 
         # calculating the time it would take to reach each sensor
         audioTimes = []
         
-        for sensorSpot in self.sensorSpots:
-            trueSensorSpot = sensorSpot + pos
-            dist = soundEmitPoint.distance_to(trueSensorSpot)
+        for sensorSpot in self.simGetSensorWorldPos():
+            dist = soundEmitPoint.distance_to(sensorSpot)
             time = dist / self.speed_of_sound_mps
             audioTimes.append(time)
         
-        # subtracting by lowest value so one time is 0 and the other times are relative to that
-        minTime = min(audioTimes)
-        audioTimes = [audioTime - minTime for audioTime in audioTimes]
 
         return audioTimes
+    
+    def moveToPosition(self, position : airsim.Vector3r, velocity : float = 10, duration : float = 60):
+        return self.client.moveToPositionAsync(position.x_val, position.y_val, position.z_val, velocity, duration, vehicle_name=self.vehicleName)
     
     # DEPRECATED use version that can take any number of sensors. will be more useful for multi drone sensor readings
     # calculates approximate position of emitted audio based on time differences from each sensor when hearing the sound (works with 3 sensors)
