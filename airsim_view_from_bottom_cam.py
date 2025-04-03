@@ -6,11 +6,10 @@ import numpy
 
 def viewLoop(client : airsim.MultirotorClient):
     while True:
-        rawBottomImage = client.simGetImage("bottom_center", airsim.ImageType.Scene)
-        rawFrontImage = client.simGetImage("front_center", airsim.ImageType.Scene)
-        rawBackImage = client.simGetImage("back_center", airsim.ImageType.Scene)
+        rawBottomImage = client.simGetImage("bottom_center", airsim.ImageType.Scene, vehicle_name="MainDrone")
+        rawBottomImage2 = client.simGetImage("bottom_center", airsim.ImageType.Scene, vehicle_name="Drone2")
 
-        rawImages = [rawBottomImage, rawFrontImage, rawBackImage]
+        rawImages = [rawBottomImage, rawBottomImage2]
 
         pngs = [cv2.imdecode(airsim.string_to_uint8_array(rawImage), cv2.IMREAD_COLOR) for rawImage in rawImages]
 

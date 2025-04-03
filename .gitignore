@@ -2,6 +2,7 @@ BlocksDroneSim/
 .venv/
 SatellitePlaneDroneSim/
 MoonPlaneDroneSim/
+MarsPlaneDroneSim/
 .vscode/
 __pycache__/
 *.pyc

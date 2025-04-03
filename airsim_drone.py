@@ -3,6 +3,7 @@ from airsim import Vector3r
 import numpy as np
 import scipy
 from math import sqrt
+import utm
 
 class Drone:
 
@@ -11,35 +12,48 @@ class Drone:
     # vehicleName = vehicle name (should match name according to client)
     # shouldSpawn = whether this vehicle should be spawned here in the script (used if not new vehicle defined in settings)
     # spawnPosition = where to spawn (used if shouldSpawn)
-    def __init__(self, client : airsim.MultirotorClient, sensorSpots = [], vehicleName = '', shouldSpawn = False, spawnPosition = None):
+    def __init__(self, client : airsim.MultirotorClient, sensorSpots = [], vehicleName = '', shouldSpawn = False, spawnPosition = Vector3r(0, 0, 0), pawn_path = ""):
         self.client = client
         self.vehicleName = vehicleName
         self.sensorSpots = sensorSpots
         self.speed_of_sound_mps = 343
         if(shouldSpawn):
-            self.client.simAddVehicle(self.vehicleName, "simpleflight", airsim.Pose(spawnPosition))
+            self.client.simAddVehicle(self.vehicleName, "simpleflight", airsim.Pose(spawnPosition), pawn_path=pawn_path)
 
-    def simGetPosition(self):
-        return self.client.simGetVehiclePose(self.vehicleName).position
+        self.startingPosition = spawnPosition
+
+        self.resetStartingAltitude()
+
+    def resetStartingAltitude(self):
+        self.starting_altitude = self.client.getGpsData(vehicle_name=self.vehicleName).gnss.geo_point.altitude
+
+    def getUTMPosition(self):
+        geo_point = self.client.getGpsData(vehicle_name=self.vehicleName).gnss.geo_point
+        utm_pos = utm.from_latlon(geo_point.latitude, geo_point.longitude)
+        
+        return Vector3r(utm_pos[0], utm_pos[1], geo_point.altitude - self.starting_altitude)
+
+    def getWorldPosition(self):
+        return self.client.getMultirotorState(self.vehicleName).kinematics_estimated.position + self.startingPosition
     
-    def simGetSensorWorldPos(self):
-        return [sensorSpot + self.simGetPosition() for sensorSpot in self.sensorSpots]
+    def getSensorWorldPos(self):
+        return [sensorSpot + self.getWorldPosition() for sensorSpot in self.sensorSpots]
 
     def simGetAudioTimes(self, soundEmitPoint : Vector3r):
 
         # calculating the time it would take to reach each sensor
         audioTimes = []
         
-        for sensorSpot in self.simGetSensorWorldPos():
+        for sensorSpot in self.getSensorWorldPos():
             dist = soundEmitPoint.distance_to(sensorSpot)
             time = dist / self.speed_of_sound_mps
             audioTimes.append(time)
-        
 
         return audioTimes
     
-    def moveToPosition(self, position : airsim.Vector3r, velocity : float = 10, duration : float = 60):
-        return self.client.moveToPositionAsync(position.x_val, position.y_val, position.z_val, velocity, duration, vehicle_name=self.vehicleName)
+    def moveToWorldPosition(self, position : airsim.Vector3r, velocity : float = 10, duration : float = 60):
+        worldPosition = position - self.startingPosition
+        return self.client.moveToPositionAsync(worldPosition.x_val, worldPosition.y_val, worldPosition.z_val, velocity, duration, vehicle_name=self.vehicleName)
     
     # DEPRECATED use version that can take any number of sensors. will be more useful for multi drone sensor readings
     # calculates approximate position of emitted audio based on time differences from each sensor when hearing the sound (works with 3 sensors)

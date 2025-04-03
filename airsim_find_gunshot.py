@@ -79,7 +79,7 @@ def simSpawnGunshotToFind(client : airsim.MultirotorClient, drone : Drone, pos :
     minTime = min(timeDiffs)
     timeDiffs = [audioTime - minTime for audioTime in timeDiffs]
 
-    estimatedSoundPosition = calcSoundEmitPosition([sensorSpot+drone.simGetPosition() for sensorSpot in drone.sensorSpots], timeDiffs)
+    estimatedSoundPosition = calcSoundEmitPosition([sensorSpot+drone.getWorldPosition() for sensorSpot in drone.sensorSpots], timeDiffs)
     print(f"algo thought gunshot at {estimatedSoundPosition}")
 
     drone.moveToPosition(Vector3r(estimatedSoundPosition.x_val, estimatedSoundPosition.y_val, -20), 10, 60).join()
@@ -93,7 +93,7 @@ def simSpawnGunshotToFindMultidrone(client : airsim.MultirotorClient, drones : l
     sensorPositions = []
     for drone in drones:
         audioTimes += drone.simGetAudioTimes(pos)
-        sensorPositions += drone.simGetSensorWorldPos()
+        sensorPositions += drone.getSensorWorldPos()
     
     # subtracting by lowest value so one time is 0 and the other times are relative to that
     minTime = min(audioTimes)
@@ -103,9 +103,17 @@ def simSpawnGunshotToFindMultidrone(client : airsim.MultirotorClient, drones : l
     estimatedSoundPosition = calcSoundEmitPosition(sensorPositions, timeDiffs)
     print(f"algo thought gunshot at {estimatedSoundPosition}")
 
-    futures = [drone.moveToPosition(Vector3r(estimatedSoundPosition.x_val, estimatedSoundPosition.y_val, -20), 10, 60) for drone in drones]
+    closestDrone = None
+    closestDist = 100000000000
+    for drone in drones:
+        position = drone.getWorldPosition()
+        dist = estimatedSoundPosition.distance_to(position)
+        if(closestDrone == None or dist < closestDist):
+            closestDist = dist
+            closestDrone = drone
 
-    [future.join() for future in futures]
+    closestDrone.moveToWorldPosition(Vector3r(estimatedSoundPosition.x_val, estimatedSoundPosition.y_val, -5), 7, 60).join()
+
 
 def findGunshotLoop(client : airsim.MultirotorClient):
 
@@ -113,30 +121,42 @@ def findGunshotLoop(client : airsim.MultirotorClient):
 
     flightHeight = 20
 
-    sensorSpots = [Vector3r(0.5, 0, 0.1), Vector3r(0, 0.5, 0.1), Vector3r(0, -0.5, 0.1), Vector3r(-0.5, 0, 0.1), Vector3r(0, 0, 0.3)]
+    sensorSpots = [Vector3r(0, 0.5, 0.1), Vector3r(0.5, 0, 0.1), Vector3r(0, 0, 0.3)]
     
     mainDrone = Drone(client, sensorSpots, vehicleName="MainDrone")
-    secondDrone = Drone(client, sensorSpots, vehicleName="Drone2", shouldSpawn=True, spawnPosition=Vector3r(0, 10, 0))    
+    secondDrone = Drone(client, sensorSpots, vehicleName="Drone2", shouldSpawn=True, spawnPosition=Vector3r(5, -5, -0.5), pawn_path="QuadrotorAlt1")  
+    thirdDrone = Drone(client, sensorSpots, vehicleName="Drone3", shouldSpawn=True, spawnPosition=Vector3r(5, 5, -0.5), pawn_path="QuadrotorAlt2")  
+
+    drones = [mainDrone, secondDrone, thirdDrone]
+
+    # for i in range(3):
+    #     drones.append(Drone(client, sensorSpots, vehicleName=f"Drone{i+2}", shouldSpawn=True, spawnPosition=Vector3r(5 * (i+1), -5, 1)))
 
     time.sleep(1)
-
-    drones = [mainDrone, secondDrone]
 
     [client.enableApiControl(True, drone.vehicleName) for drone in drones]
     [client.armDisarm(True, drone.vehicleName) for drone in drones]
 
     print(client.listVehicles())
 
-    client.takeoffAsync(20, mainDrone.vehicleName)
-    client.takeoffAsync(20, secondDrone.vehicleName).join()
+    futures = [client.takeoffAsync(20, drone.vehicleName) for drone in drones]
+    [future.join() for future in futures]
     
     while True:
         key = airsim.wait_key('waiting for console input')
         if(key == b']'):
             #simSpawnGunshotToFind(client, mainDrone, Vector3r(7, -10, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(60, 45, -2))
+            # for i in range(10):
+            #     randX = random.randint(-35, 35)
+            #     randY = random.randint(-30, 30)
+            #     simSpawnGunshotToFindMultidrone(client, drones, Vector3r(randX, randY, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(20, 11, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-20, -2, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(15, -10, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-10, 12, -2))
         if(key == b'['):
-            futures = [drone.moveToPosition(Vector3r(10, 10, -20), 10, 60) for drone in drones]
+            print('moving all drones above home')
+            futures = [drone.moveToWorldPosition(drone.startingPosition + Vector3r(0, 0, -3)) for drone in drones]
             [future.join() for future in futures]
         if(key == b'\x1b'):
             break
