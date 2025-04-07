@@ -46,7 +46,7 @@ def reworkBlocksScene(client):
 
 def launchAirsim():
     # starting airsim
-    os.system("SatellitePlaneDroneSim\\WindowsNoEditor\\run.bat")
+    os.system("MarsPlaneDroneSim\\WindowsNoEditor\\run.bat")
 
     # delay a bit and wait for airsim to launch
     time.sleep(1) 
@@ -54,10 +54,12 @@ def launchAirsim():
     # creating client
     client = airsim.MultirotorClient()
     client.confirmConnection()
+
+    #fix screen tearing
+    client.simRunConsoleCommand("r.vsync 1")
     
-    # enable waiting for keyboard controls
-    #airsim_keyboard_controller.controlDroneLoop()
-    airsim_find_gunshot.findGunshotLoop(client)
+    #airsim_find_gunshot.findGunshotLoop(client)
+    airsim_keyboard_controller.controlDroneLoop(client)
 
 if __name__ == '__main__':
     launchAirsim()

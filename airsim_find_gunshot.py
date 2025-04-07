@@ -8,6 +8,7 @@ from airsim import Vector3r
 from airsim_drone import Drone
 import numpy as np
 
+
 # calculates position of sound based on positions of sensors and time delay between each sensor hearing the sound
 def calcSoundEmitPosition(sensorSpots : list, audioTimes : list, mediumSpeed : float = 343):
         
@@ -28,7 +29,7 @@ def calcSoundEmitPosition(sensorSpots : list, audioTimes : list, mediumSpeed : f
     # S_j in the paper. N-1x3 matrix of xyz coord of each sensor relative to reference sensor
     sensorOffsetsToReference = np.zeros((size - 1,3))
 
-    # mew_j in the paper. I don't have an intuitive understanding/name for this. 
+    # mu_j in the paper. I don't have an intuitive understanding/name for this. 
     # Also in the paper the definition of this is slightly misprinted, all values need to be squared
     mew = np.zeros(size - 1) 
 
@@ -116,6 +117,7 @@ def simSpawnGunshotToFindMultidrone(client : airsim.MultirotorClient, drones : l
 
 
 def findGunshotLoop(client : airsim.MultirotorClient):
+    
 
     print("Drone gunshot detection control activated. Press ESC to disable")
 
@@ -125,14 +127,15 @@ def findGunshotLoop(client : airsim.MultirotorClient):
     
     mainDrone = Drone(client, sensorSpots, vehicleName="MainDrone")
     secondDrone = Drone(client, sensorSpots, vehicleName="Drone2", shouldSpawn=True, spawnPosition=Vector3r(5, -5, -0.5), pawn_path="QuadrotorAlt1")  
-    thirdDrone = Drone(client, sensorSpots, vehicleName="Drone3", shouldSpawn=True, spawnPosition=Vector3r(5, 5, -0.5), pawn_path="QuadrotorAlt2")  
+    #thirdDrone = Drone(client, sensorSpots, vehicleName="Drone3", shouldSpawn=True, spawnPosition=Vector3r(5, 5, -0.5), pawn_path="QuadrotorAlt2")  
 
-    drones = [mainDrone, secondDrone, thirdDrone]
+    drones = [mainDrone, secondDrone]
 
     # for i in range(3):
     #     drones.append(Drone(client, sensorSpots, vehicleName=f"Drone{i+2}", shouldSpawn=True, spawnPosition=Vector3r(5 * (i+1), -5, 1)))
 
     time.sleep(1)
+    client.simRunConsoleCommand("ce TestEvent")
 
     [client.enableApiControl(True, drone.vehicleName) for drone in drones]
     [client.armDisarm(True, drone.vehicleName) for drone in drones]
@@ -154,6 +157,8 @@ def findGunshotLoop(client : airsim.MultirotorClient):
             simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-20, -2, -2))
             simSpawnGunshotToFindMultidrone(client, drones, Vector3r(15, -10, -2))
             simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-10, 12, -2))
+            #simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-3, -20, -2))
+            #simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-10, 25, -2))
         if(key == b'['):
             print('moving all drones above home')
             futures = [drone.moveToWorldPosition(drone.startingPosition + Vector3r(0, 0, -3)) for drone in drones]
