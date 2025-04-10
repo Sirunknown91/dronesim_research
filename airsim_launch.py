@@ -4,6 +4,7 @@ import airsim_texture_replacement
 import airsim_list_all_objects
 import airsim_destroy_everything
 import airsim_find_gunshot
+import airsim_splitscreen
 import os
 import time
 
@@ -59,7 +60,8 @@ def launchAirsim():
     client.simRunConsoleCommand("r.vsync 1")
     
     #airsim_find_gunshot.findGunshotLoop(client)
-    airsim_keyboard_controller.controlDroneLoop(client)
+    #airsim_keyboard_controller.controlDroneLoop(client)
+    airsim_splitscreen.splitScreenDemo(client)
 
 if __name__ == '__main__':
     launchAirsim()

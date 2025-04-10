@@ -55,6 +55,11 @@ class Drone:
         worldPosition = position - self.startingPosition
         return self.client.moveToPositionAsync(worldPosition.x_val, worldPosition.y_val, worldPosition.z_val, velocity, duration, vehicle_name=self.vehicleName)
     
+    # changes color of this drone using RGB values (which range from 0 to 1).
+    # Note: this drone must use pawn BP_FlyingPawn_Alt for this to work
+    def changeColor(self, r : float, g : float, b : float):
+        self.client.simRunConsoleCommand(f"ce ChangeDroneColor {self.vehicleName} {r} {g} {b}")
+        
     # DEPRECATED use version that can take any number of sensors. will be more useful for multi drone sensor readings
     # calculates approximate position of emitted audio based on time differences from each sensor when hearing the sound (works with 3 sensors)
     '''

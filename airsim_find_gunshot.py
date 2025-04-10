@@ -7,7 +7,7 @@ import asyncio
 from airsim import Vector3r
 from airsim_drone import Drone
 import numpy as np
-from airsim_splitscreen import splitScreen, attachCameraToDrone
+from airsim_splitscreen import simSplitScreen, simAttachCameraToDrone
 
 
 # calculates position of sound based on positions of sensors and time delay between each sensor hearing the sound
@@ -136,9 +136,9 @@ def findGunshotLoop(client : airsim.MultirotorClient):
     #     drones.append(Drone(client, sensorSpots, vehicleName=f"Drone{i+2}", shouldSpawn=True, spawnPosition=Vector3r(5 * (i+1), -5, 1)))
 
     time.sleep(1)
-    splitScreen(client)
-    attachCameraToDrone(client, droneName=mainDrone.vehicleName, cameraName="LeftScreenCapture")
-    attachCameraToDrone(client, droneName=secondDrone.vehicleName, cameraName="RightScreenCapture")
+    simSplitScreen(client)
+    simAttachCameraToDrone(client, droneName=mainDrone.vehicleName, cameraName="LeftScreenCapture")
+    simAttachCameraToDrone(client, droneName=secondDrone.vehicleName, cameraName="RightScreenCapture")
 
     [client.enableApiControl(True, drone.vehicleName) for drone in drones]
     [client.armDisarm(True, drone.vehicleName) for drone in drones]

@@ -6,8 +6,10 @@ from airsim import Pose
 from airsim_list_all_objects import printAllObjects, printAllAvailAssets
 from threading import Thread
 from time import sleep
-
+import airsim_splitscreen
+import os 
 # relevant documentation: https://microsoft.github.io/AirSim/apis/
+
 
 # take image from drone camera and saves it. camera ids: https://microsoft.github.io/AirSim/image_apis/#multirotor
 def saveImage(client : airsim.MultirotorClient, cameraId = "bottom_center", img_path = "test_image.png"):
