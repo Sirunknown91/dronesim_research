@@ -54,20 +54,13 @@ def launchAirsim():
     #time.sleep(1) 
 
     # creating client
-    client = airsim.MultirotorClient()
+    client = airsim.MultirotorClient() 
     client.confirmConnection()
 
     #fix screen tearing
     client.simRunConsoleCommand("r.vsync 1")
     
-    
-    mainDrone = Drone(client, vehicleName="MainDrone")
-    controller = airsim_keyboard_controller.DroneKeyboardController(mainDrone, {})
-
-    client.enableApiControl(True, mainDrone.vehicleName)
-
-    while True:
-        controller.process()
+    airsim_splitscreen.splitScreenKeyboardDemo(client)
 
 if __name__ == '__main__':
     launchAirsim()

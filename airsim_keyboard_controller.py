@@ -17,34 +17,83 @@ class DroneKeyboardController:
     def __init__(self, drone : Drone, controls : Dict[str, str], input_rate = 1/30):
         
         self.drone = drone
-        self.controls = controls
         self.input_rate = input_rate
+
+        # setting up controls
+        self.inputs_held = {
+            "up" : False,
+            "down" : False,
+            "forward" : False,
+            "back" : False,
+            "left" : False,
+            "right" : False,
+            "rot_left" : False,
+            "rot_right" : False,
+            }
         
+        controls.setdefault("up", "space")
+        controls.setdefault("down", "ctrl")
+        
+        controls.setdefault("forward", "w")
+        controls.setdefault("back", "s")
+
+        controls.setdefault("left", "a")
+        controls.setdefault("right", "d")
+
+        controls.setdefault("rot_left", "q")
+        controls.setdefault("rot_right", "e") 
+
+        self.controls = controls
+
+        # start listening for key presses
+        keyboard.hook(lambda e : self.onKeyAction(e))
+
+    def onKeyAction(self, event : keyboard.KeyboardEvent):
+        key = event.name
+        if event.event_type == keyboard.KEY_DOWN:
+            [self.setInputHeld(input, True) for input, value in self.controls.items() if value == key]
+        if event.event_type == keyboard.KEY_UP:
+            [self.setInputHeld(input, False) for input, value in self.controls.items() if value == key]
+
+    def setInputHeld(self, input, held):
+        self.inputs_held[input] = held
 
     def process(self):  
         # setting flight direction based on keyboard input
         vel = [0, 0, 0]
         
         # vertical movement
-        if(keyboard.is_pressed('space')):
+        if(self.inputs_held["up"]):
             vel[2] += -10
-        if(keyboard.is_pressed('ctrl')):
+        if(self.inputs_held["down"]):
             vel[2] += 10
 
         # forward/back movement
-        if(keyboard.is_pressed('w')):
+        if(self.inputs_held["forward"]):
             vel[0] += 10
-        if(keyboard.is_pressed('s')):
+        if(self.inputs_held["back"]):
             vel[0] += -10
 
         # left/right movement
-        if(keyboard.is_pressed('d')):
-            vel[1] += 10
-        if(keyboard.is_pressed('a')):
+        if(self.inputs_held["left"]):
             vel[1] += -10
+        if(self.inputs_held["right"]):
+            vel[1] += 10
     
         # telling the sim drone to fly
         self.drone.client.moveByVelocityBodyFrameAsync(*vel, self.input_rate, vehicle_name=self.drone.vehicleName)
+
+        rot = [0, 0, 0]
+        shouldRot = False
+        if(self.inputs_held["rot_left"]):
+            rot[2] += 1
+            shouldRot = True
+        if(self.inputs_held["rot_right"]):
+            rot[2] += -1
+            shouldRot = True
+
+        if(shouldRot):
+            self.drone.client.moveByAngleRatesThrottleAsync(*rot, throttle=10, duration=self.input_rate)
 
 # take image from drone camera and saves it. camera ids: https://microsoft.github.io/AirSim/image_apis/#multirotor
 def saveImage(client : airsim.MultirotorClient, cameraId = "bottom_center", img_path = "test_image.png"):

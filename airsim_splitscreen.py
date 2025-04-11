@@ -8,6 +8,7 @@ import time
 import os 
 import cv2
 import numpy as np
+import keyboard
 
 screenSplit = False
 
@@ -137,8 +138,49 @@ def splitScreenDemo(client : airsim.MultirotorClient):
     airsim.wait_key("press any key to disable api control")
     [client.enableApiControl(False, drone.vehicleName) for drone in drones]
 
+def splitScreenKeyboardDemo(client : airsim.MultirotorClient):
+    client.simRunConsoleCommand("DisableAllScreenMessages")
+
+    mainDrone = Drone(client, vehicleName="MainDrone")
+    secondDrone = Drone(client, vehicleName="Drone2", shouldSpawn=True, spawnPosition=Vector3r(5, -5, -0.5), pawn_path="QuadrotorAlt1")  
+
+    drones = [mainDrone, secondDrone]
+
+    mainDrone.changeColor(.3, 0, .8)
+    secondDrone.changeColor(.2, .8, 0)
+
+    # spliting screen and attaching cameras to follow the drones
+    simSplitScreen(client)
+    
+    simAttachCameraToDrone(client, droneName=mainDrone.vehicleName, cameraName="LeftScreenCapture")
+    simAttachCameraToDrone(client, droneName=secondDrone.vehicleName, cameraName="RightScreenCapture")
+
+    # readying up drones
+    time.sleep(1)
+    
+    [client.enableApiControl(True, drone.vehicleName) for drone in drones]
+    [client.armDisarm(True, drone.vehicleName) for drone in drones]
+
+    futures = [client.takeoffAsync(20, drone.vehicleName) for drone in drones]
+    [future.join() for future in futures]
+
+    # drone controllers    
+    controller1 = airsim_keyboard_controller.DroneKeyboardController(mainDrone, {})
+    controller2 = airsim_keyboard_controller.DroneKeyboardController(secondDrone, {"forward": "i", "back": "k", "left" : "j", "right" : "l", "up": ".", "down": ","})
+
+    while True:
+        controller1.process()
+        controller2.process()
+
+        if(keyboard.is_pressed("esc")):
+            break
+
+        time.sleep(controller1.input_rate)
+
+    [client.enableApiControl(False, drone.vehicleName) for drone in drones]
+
 if __name__ == "__main__":
     client = airsim.MultirotorClient()
     client.confirmConnection()
 
-    splitScreenDemo(client)
+    splitScreenKeyboardDemo(client)
