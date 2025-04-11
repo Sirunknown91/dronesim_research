@@ -5,6 +5,7 @@ import airsim_list_all_objects
 import airsim_destroy_everything
 import airsim_find_gunshot
 import airsim_splitscreen
+from airsim_drone import Drone
 import os
 import time
 
@@ -50,7 +51,7 @@ def launchAirsim():
     os.system("MarsPlaneDroneSim\\WindowsNoEditor\\run.bat")
 
     # delay a bit and wait for airsim to launch
-    time.sleep(1) 
+    #time.sleep(1) 
 
     # creating client
     client = airsim.MultirotorClient()
@@ -59,9 +60,14 @@ def launchAirsim():
     #fix screen tearing
     client.simRunConsoleCommand("r.vsync 1")
     
-    #airsim_find_gunshot.findGunshotLoop(client)
-    #airsim_keyboard_controller.controlDroneLoop(client)
-    airsim_splitscreen.splitScreenDemo(client)
+    
+    mainDrone = Drone(client, vehicleName="MainDrone")
+    controller = airsim_keyboard_controller.DroneKeyboardController(mainDrone, {})
+
+    client.enableApiControl(True, mainDrone.vehicleName)
+
+    while True:
+        controller.process()
 
 if __name__ == '__main__':
     launchAirsim()

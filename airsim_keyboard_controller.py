@@ -7,9 +7,44 @@ from airsim_list_all_objects import printAllObjects, printAllAvailAssets
 from threading import Thread
 from time import sleep
 import airsim_splitscreen
+from airsim_drone import Drone
 import os 
+from typing import Dict
 # relevant documentation: https://microsoft.github.io/AirSim/apis/
 
+class DroneKeyboardController:
+
+    def __init__(self, drone : Drone, controls : Dict[str, str], input_rate = 1/30):
+        
+        self.drone = drone
+        self.controls = controls
+        self.input_rate = input_rate
+        
+
+    def process(self):  
+        # setting flight direction based on keyboard input
+        vel = [0, 0, 0]
+        
+        # vertical movement
+        if(keyboard.is_pressed('space')):
+            vel[2] += -10
+        if(keyboard.is_pressed('ctrl')):
+            vel[2] += 10
+
+        # forward/back movement
+        if(keyboard.is_pressed('w')):
+            vel[0] += 10
+        if(keyboard.is_pressed('s')):
+            vel[0] += -10
+
+        # left/right movement
+        if(keyboard.is_pressed('d')):
+            vel[1] += 10
+        if(keyboard.is_pressed('a')):
+            vel[1] += -10
+    
+        # telling the sim drone to fly
+        self.drone.client.moveByVelocityBodyFrameAsync(*vel, self.input_rate, vehicle_name=self.drone.vehicleName)
 
 # take image from drone camera and saves it. camera ids: https://microsoft.github.io/AirSim/image_apis/#multirotor
 def saveImage(client : airsim.MultirotorClient, cameraId = "bottom_center", img_path = "test_image.png"):
@@ -33,8 +68,10 @@ def controlDroneLoop(client : airsim.MultirotorClient):
 
     startingDroneHeightMeters = client.getGpsData().gnss.geo_point.altitude
 
-
     while True:
+        
+        futures = []
+
         # setting flight direction based on keyboard input
         vel = [0, 0, 0]
         
@@ -55,9 +92,9 @@ def controlDroneLoop(client : airsim.MultirotorClient):
             vel[1] += 10
         if(keyboard.is_pressed('a')):
             vel[1] += -10
-        
+    
         # telling the sim drone to fly
-        client.moveByVelocityBodyFrameAsync(*vel, input_rate)
+        futures.append(client.moveByVelocityBodyFrameAsync(*vel, input_rate))
 
         #rotation
         #   roll pitch yaw
@@ -71,7 +108,7 @@ def controlDroneLoop(client : airsim.MultirotorClient):
             shouldRot = True
 
         if(shouldRot):
-            client.moveByAngleRatesThrottleAsync(*rot, throttle=10, duration=input_rate)
+            futures.append(client.moveByAngleRatesThrottleAsync(*rot, throttle=10, duration=input_rate))
         
         trueVel = client.getGpsData().gnss.velocity
 
@@ -85,7 +122,7 @@ def controlDroneLoop(client : airsim.MultirotorClient):
             imageTaken = True
             saveImage(client)
         
-        #makes sure image is only take once per press of . instead of once per frame while holding .
+        #makes sure image is only taken once per press of . instead of once per frame while holding .
         if(not keyboard.is_pressed('.')):
             imageTaken = False
 
@@ -93,6 +130,7 @@ def controlDroneLoop(client : airsim.MultirotorClient):
         if(keyboard.is_pressed('esc')):
             break
 
+        #for future in futures : future.join()
         time.sleep(input_rate)
 
     print("Drone keyboard control deactivated")

@@ -7,6 +7,7 @@ from airsim import Vector3r
 import time
 import os 
 import cv2
+import numpy as np
 
 screenSplit = False
 
@@ -40,6 +41,9 @@ def simSetFutureCameraOffset(client : airsim.MultirotorClient, x, y, z):
     client.simRunConsoleCommand(f"ce SetCameraOffset {x} {y} {z}")
 
 def splitScreenDemo(client : airsim.MultirotorClient):
+
+    #client.simRunConsoleCommand("DisableAllScreenMessages")
+
     mainDrone = Drone(client, vehicleName="MainDrone")
     secondDrone = Drone(client, vehicleName="Drone2", shouldSpawn=True, spawnPosition=Vector3r(5, -5, -0.5), pawn_path="QuadrotorAlt1")  
 
@@ -47,7 +51,10 @@ def splitScreenDemo(client : airsim.MultirotorClient):
 
     # spliting screen and attaching cameras to follow the drones
     simSplitScreen(client)
+    
     simAttachCameraToDrone(client, droneName=mainDrone.vehicleName, cameraName="RightScreenCapture")
+    
+    # simSetFutureCameraOffset(client, 0, 0, 150)
     simAttachCameraToDrone(client, droneName=secondDrone.vehicleName, cameraName="LeftScreenCapture")
 
     # readying up drones
@@ -76,17 +83,17 @@ def splitScreenDemo(client : airsim.MultirotorClient):
     # future1.join()
     # future2.join()
 
-    airsim.wait_key("press any key to show color changing")
+    # airsim.wait_key("press any key to show color changing")
 
-    # # this resets the screen split so that we have access to both cameras again
-    # simUnsplitScreen(client)
-    # simSplitScreen(client)
+    # # # this resets the screen split so that we have access to both cameras again
+    # # simUnsplitScreen(client)
+    # # simSplitScreen(client)
 
-    secondDrone.changeColor(1, 1, 0)
-    time.sleep(1)
-    secondDrone.changeColor(0, 1, 1)
-    time.sleep(1)
-    secondDrone.changeColor(0.2, 0, 0.4)
+    # secondDrone.changeColor(1, 1, 0)
+    # time.sleep(1)
+    # secondDrone.changeColor(0, 1, 1)
+    # time.sleep(1)
+    # secondDrone.changeColor(0.2, 0, 0.4)
 
     airsim.wait_key("press any key to show custom images on half")
 
@@ -102,14 +109,14 @@ def splitScreenDemo(client : airsim.MultirotorClient):
         # padding image so it is not stretched
         image = cv2.imdecode(airsim.string_to_uint8_array(raw_image), cv2.IMREAD_COLOR)
 
-        image = cv2.copyMakeBorder(image, 56, 56, 0, 0, cv2.BORDER_CONSTANT, value=(0, 0, 0))
+        image = cv2.copyMakeBorder(image, 66, 66, 0, 0, cv2.BORDER_CONSTANT, value=(0, 0, 0))
 
         # adding stuff for display
         image = cv2.resize(image, (512, 564))
 
         somewhat_light_red = (50, 50, 255)
 
-        image = cv2.putText(img=image, text="pretend image detection", org=(256, 296), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.4, color=somewhat_light_red)
+        #image = cv2.putText(img=image, text="pretend image detection", org=(256, 296), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.4, color=somewhat_light_red)
         image = cv2.rectangle(img=image, pt1=(256, 296), pt2=(186, 226), color=somewhat_light_red, thickness=2)
 
         # save image to file
@@ -125,6 +132,10 @@ def splitScreenDemo(client : airsim.MultirotorClient):
         time.sleep(0.1)
 
     future1.join()
+
+    
+    airsim.wait_key("press any key to disable api control")
+    [client.enableApiControl(False, drone.vehicleName) for drone in drones]
 
 if __name__ == "__main__":
     client = airsim.MultirotorClient()
