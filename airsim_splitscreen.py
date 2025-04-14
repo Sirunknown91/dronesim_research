@@ -187,8 +187,8 @@ def splitScreenKeyboardSwappableDemo(client : airsim.MultirotorClient):
 
     drones = [mainDrone, secondDrone]
 
-    mainDrone.changeColor(.3, 0, .8)
-    secondDrone.changeColor(.2, .8, 0)
+    mainDrone.changeColor(.1, 0, .3)
+    secondDrone.changeColor(.6, .7, .95)
 
     # spliting screen and attaching cameras to follow the drones
     simSplitScreen(client)

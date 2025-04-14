@@ -29,6 +29,7 @@ class DroneKeyboardController:
             "right" : False,
             "rot_left" : False,
             "rot_right" : False,
+            "take_image": False,
             }
         
         controls.setdefault("up", "space")
@@ -43,7 +44,11 @@ class DroneKeyboardController:
         controls.setdefault("rot_left", "q")
         controls.setdefault("rot_right", "e") 
 
+        controls.setdefault("take_image", ".") 
+
         self.controls = controls
+
+        self.imageTaken = False
 
         # start listening for key presses
         keyboard.hook(lambda e : self.onKeyAction(e))
@@ -94,6 +99,20 @@ class DroneKeyboardController:
 
         if(shouldRot):
             self.drone.client.moveByAngleRatesThrottleAsync(*rot, throttle=10, duration=self.input_rate)
+
+        if(self.inputs_held["take_image"] and not self.imageTaken):
+            self.saveImage()
+            self.imageTaken = True #makes only one image be taken per keypress
+
+        if(not self.inputs_held["take_image"] and self.imageTaken):
+            self.imageTaken = False
+
+    # take image from drone camera and saves it. camera ids: https://microsoft.github.io/AirSim/image_apis/#multirotor
+    def saveImage(self, cameraId = "bottom_center", img_path = "test_image.png"):
+        png_image = self.drone.client.simGetImage(camera_name=cameraId, image_type=airsim.ImageType.Scene, vehicle_name=self.drone.vehicleName)
+
+        with open(img_path, 'wb') as imgfile:
+            imgfile.write(png_image)
 
 # take image from drone camera and saves it. camera ids: https://microsoft.github.io/AirSim/image_apis/#multirotor
 def saveImage(client : airsim.MultirotorClient, cameraId = "bottom_center", img_path = "test_image.png"):
@@ -185,8 +204,6 @@ def controlDroneLoop(client : airsim.MultirotorClient):
     print("Drone keyboard control deactivated")
     client.enableApiControl(False)
 
-
-
 def incControlledIndex():
     global controlledIndex, controllers
     controlledIndex += 1
@@ -215,8 +232,8 @@ def controlDroneSwappableLoop(client : airsim.MultirotorClient):
 
     controlledIndex = 0
 
-    hotkey0 = keyboard.add_hotkey("0", incControlledIndex)
-    hotkey9 = keyboard.add_hotkey("9", decControlledIndex)
+    hotkey0 = keyboard.add_hotkey("9", incControlledIndex)
+    hotkey9 = keyboard.add_hotkey("8", decControlledIndex)
 
     while True:
         currentController = controllers[controlledIndex]
