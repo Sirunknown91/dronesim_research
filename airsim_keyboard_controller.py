@@ -233,7 +233,7 @@ def controlDroneSwappableLoop(client : airsim.MultirotorClient):
     controlledIndex = 0
 
     hotkey0 = keyboard.add_hotkey("9", incControlledIndex)
-    hotkey9 = keyboard.add_hotkey("8", decControlledIndex)
+    hotkey9 = keyboard.add_hotkey("8", decControlledIndex)  
 
     while True:
         currentController = controllers[controlledIndex]
