@@ -179,8 +179,27 @@ def splitScreenKeyboardDemo(client : airsim.MultirotorClient):
 
     [client.enableApiControl(False, drone.vehicleName) for drone in drones]
 
+def splitScreenKeyboardSwappableDemo(client : airsim.MultirotorClient):
+    client.simRunConsoleCommand("DisableAllScreenMessages")
+
+    mainDrone = Drone(client, vehicleName="MainDrone")
+    secondDrone = Drone(client, vehicleName="Drone2", shouldSpawn=True, spawnPosition=Vector3r(5, -5, -0.5), pawn_path="QuadrotorAlt1")  
+
+    drones = [mainDrone, secondDrone]
+
+    mainDrone.changeColor(.3, 0, .8)
+    secondDrone.changeColor(.2, .8, 0)
+
+    # spliting screen and attaching cameras to follow the drones
+    simSplitScreen(client)
+    
+    simAttachCameraToDrone(client, droneName=mainDrone.vehicleName, cameraName="LeftScreenCapture")
+    simAttachCameraToDrone(client, droneName=secondDrone.vehicleName, cameraName="RightScreenCapture")
+
+    airsim_keyboard_controller.controlDroneSwappableLoop(client)
+
 if __name__ == "__main__":
     client = airsim.MultirotorClient()
     client.confirmConnection()
 
-    splitScreenKeyboardDemo(client)
+    splitScreenKeyboardSwappableDemo(client)

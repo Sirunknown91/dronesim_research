@@ -14,7 +14,7 @@ from typing import Dict
 
 class DroneKeyboardController:
 
-    def __init__(self, drone : Drone, controls : Dict[str, str], input_rate = 1/30):
+    def __init__(self, drone : Drone, controls : Dict[str, str] = {}, input_rate = 1/30):
         
         self.drone = drone
         self.input_rate = input_rate
@@ -185,6 +185,52 @@ def controlDroneLoop(client : airsim.MultirotorClient):
     print("Drone keyboard control deactivated")
     client.enableApiControl(False)
 
+
+
+def incControlledIndex():
+    global controlledIndex, controllers
+    controlledIndex += 1
+    controlledIndex %= len(controllers)
+    print(controlledIndex)
+
+def decControlledIndex():
+    global controlledIndex, controllers
+    controlledIndex -= 1
+    controlledIndex %= len(controllers)
+
+# Loop that lets you control many drones with the keyboard
+def controlDroneSwappableLoop(client : airsim.MultirotorClient):
+    global controlledIndex, controllers
+
+    vehicleNames = client.listVehicles()
+
+    drones = []
+    for droneName in vehicleNames:
+        drones.append(Drone(client, vehicleName=droneName))
+
+    for drone in drones : client.enableApiControl(True, drone.vehicleName) 
+
+    controllers = []
+    for drone in drones:
+        controllers.append(DroneKeyboardController(drone))
+
+    controlledIndex = 0
+
+    keyboard.add_hotkey("0", incControlledIndex)
+    keyboard.add_hotkey("9", decControlledIndex)
+
+    while True:
+        currentController = controllers[controlledIndex]
+        currentController.process()
+
+        if(keyboard.is_pressed("esc")):
+            break
+
+        time.sleep(currentController.input_rate)
+
+
+        
+    for drone in drones : client.enableApiControl(False, drone.vehicleName) 
 
 if __name__ == '__main__':
     client = airsim.MultirotorClient()
