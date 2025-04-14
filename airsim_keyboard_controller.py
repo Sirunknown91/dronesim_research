@@ -191,7 +191,6 @@ def incControlledIndex():
     global controlledIndex, controllers
     controlledIndex += 1
     controlledIndex %= len(controllers)
-    print(controlledIndex)
 
 def decControlledIndex():
     global controlledIndex, controllers
