@@ -4,11 +4,13 @@ import airsim
 import airsim_keyboard_controller
 from airsim_drone import Drone
 from airsim import Vector3r
+from airsim_texture_replacement import textureReplacePath, textureResize, standardTextureReplacement
 import time
 import os 
 import cv2
 import numpy as np
 import keyboard
+import random
 
 screenSplit = False
 
@@ -30,8 +32,8 @@ def simAttachCameraToDrone(client : airsim.MultirotorClient, droneName = "", cam
     client.simRunConsoleCommand(f"ce AttachCameraToDrone {droneName} {cameraName}")
 
 # allows you to set image displayed on half of screen to an image retrieved from a file
-# note: apsect ratio of image halfs is approximately 1:1.1 (the exact value is 980:1080) (that is 10% taller than wide.) 
-# other image apsect ratios will be stretched slightly 
+# note: aspect ratio of image halfs is approximately 1:1.1 (the exact value is 980:1080) (that is 10% taller than wide.) 
+# other image aspect ratios will be stretched slightly 
 def simSetSplitScreenToImageFile(client : airsim.MultirotorClient, fileName = "", rightSide = True):
     client.simRunConsoleCommand(f"ce SetSplitScreenImageFromFile {rightSide} {fileName}")
 
@@ -196,10 +198,108 @@ def splitScreenKeyboardSwappableDemo(client : airsim.MultirotorClient):
     simAttachCameraToDrone(client, droneName=mainDrone.vehicleName, cameraName="LeftScreenCapture")
     simAttachCameraToDrone(client, droneName=secondDrone.vehicleName, cameraName="RightScreenCapture")
 
+    standardTextureReplacement(client)
+
     airsim_keyboard_controller.controlDroneSwappableLoop(client)
+
+def incControlledDrone():
+    global controlledIndex, drones
+    controlledIndex += 1
+    controlledIndex %= len(drones)
+
+def decControlledDrone():
+    global controlledIndex, drones
+    controlledIndex -= 1
+    controlledIndex %= len(drones)
+
+def updateCameraFollow():
+    global controlledIndex, drones
+    currentDrone = drones[controlledIndex]
+    simSetFutureCameraOffset(currentDrone.client, -300, 0, 250)
+    simAttachCameraToDrone(currentDrone.client, droneName=currentDrone.vehicleName, cameraName="LeftScreenCapture")
+    simSetFutureCameraOffset(currentDrone.client, -50, 0, 750)
+    simAttachCameraToDrone(currentDrone.client, droneName=currentDrone.vehicleName, cameraName="RightScreenCapture")
+
+# def updateCameraImageView():
+#     global controlledIndex, drones
+#     currentDrone = drones[controlledIndex]
+#     raw_image = currentDrone.client.simGetImage(camera_name="bottom_center", image_type=airsim.ImageType.Scene, vehicle_name=currentDrone.vehicleName)
+
+#     # padding image so it is not stretched
+#     image = cv2.imdecode(airsim.string_to_uint8_array(raw_image), cv2.IMREAD_COLOR)
+
+#     image = cv2.copyMakeBorder(image, 66, 66, 0, 0, cv2.BORDER_CONSTANT, value=(0, 0, 0))
+
+#     # save image to file
+#     img_path = "demo_image.png"
+#     cv2.imwrite(img_path, image)
+
+#     # displaying image (needs to get image from file, which is why we have to save it above)
+#     dir_path = os.path.dirname(os.path.realpath(__file__))
+
+#     absolute_img_path = dir_path + "\\" + img_path
+
+#     simSetSplitScreenToImageFile(currentDrone.client, absolute_img_path, rightSide=True)
+
+# Loop that lets you control many drones with the keyboard, swapping which drone you're controlling and following with a hotkey
+def splitScreenKeyboardCameraSwappableDemo(client : airsim.MultirotorClient):
+    global controlledIndex, drones
+
+    client.simRunConsoleCommand("DisableAllScreenMessages")
+
+    mainDrone = Drone(client, vehicleName="MainDrone")
+    #secondDrone = Drone(client, vehicleName="Drone2", shouldSpawn=True, spawnPosition=Vector3r(5, -5, -0.5), pawn_path="QuadrotorAlt1")  
+
+    drones = [mainDrone]
+
+    mainDrone.changeColor(.1, 0, .3)
+
+    random.seed(10)
+    
+    droneCount = 5
+    for i in range(droneCount):
+        newDrone = Drone(client, vehicleName=f"Drone{i+2}", shouldSpawn=True, spawnPosition=Vector3r(5, -5 + (3 * i), -0.5), pawn_path=("QuadrotorAlt1"))
+        newDrone.changeColor(random.uniform(0, 1), random.uniform(0,1), random.uniform(0,1))
+        drones.append(newDrone)
+
+    simSplitScreen(client)
+
+    standardTextureReplacement(client)
+
+    for drone in drones : client.enableApiControl(True, drone.vehicleName) 
+
+    controllers = []
+    for drone in drones:
+        controllers.append(airsim_keyboard_controller.DroneKeyboardController(drone, input_rate=1/10))
+
+    controlledIndex = 0
+    lastControlledIndex = -1
+
+    updateCameraFollow()
+
+    hotkeynext = keyboard.add_hotkey("9", incControlledDrone)
+    hotkeyprev = keyboard.add_hotkey("8", decControlledDrone)  
+
+    while True:
+        currentController = controllers[controlledIndex]
+        futures = currentController.process()
+
+        if(lastControlledIndex != controlledIndex):
+            lastControlledIndex = controlledIndex
+            updateCameraFollow()
+
+        if(keyboard.is_pressed("esc")):
+            break
+
+        for future in futures: future.join()
+
+    keyboard.remove_hotkey(hotkeynext)
+    keyboard.remove_hotkey(hotkeyprev)
+        
+    for drone in drones : client.enableApiControl(False, drone.vehicleName) 
 
 if __name__ == "__main__":
     client = airsim.MultirotorClient()
     client.confirmConnection()
 
-    splitScreenKeyboardSwappableDemo(client)
+    splitScreenKeyboardCameraSwappableDemo(client)

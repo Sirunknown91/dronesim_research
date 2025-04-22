@@ -60,7 +60,8 @@ def launchAirsim():
     #fix screen tearing
     client.simRunConsoleCommand("r.vsync 1")
     
-    airsim_splitscreen.splitScreenKeyboardSwappableDemo(client)
+    airsim_splitscreen.splitScreenKeyboardCameraSwappableDemo(client)
+    #airsim_find_gunshot.findGunshotLoop(client)
 
 if __name__ == '__main__':
     launchAirsim()

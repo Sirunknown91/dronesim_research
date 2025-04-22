@@ -63,30 +63,34 @@ class DroneKeyboardController:
     def setInputHeld(self, input, held):
         self.inputs_held[input] = held
 
+    # returns list of futures to join of and wait for operations started here to finish
     def process(self):  
+        futures = []
         # setting flight direction based on keyboard input
         vel = [0, 0, 0]
+
+        speed = 10
         
         # vertical movement
         if(self.inputs_held["up"]):
-            vel[2] += -10
+            vel[2] += -speed
         if(self.inputs_held["down"]):
-            vel[2] += 10
+            vel[2] += speed
 
         # forward/back movement
         if(self.inputs_held["forward"]):
-            vel[0] += 10
+            vel[0] += speed
         if(self.inputs_held["back"]):
-            vel[0] += -10
+            vel[0] += -speed
 
         # left/right movement
         if(self.inputs_held["left"]):
-            vel[1] += -10
+            vel[1] += -speed
         if(self.inputs_held["right"]):
-            vel[1] += 10
+            vel[1] += speed
     
         # telling the sim drone to fly
-        self.drone.client.moveByVelocityBodyFrameAsync(*vel, self.input_rate, vehicle_name=self.drone.vehicleName)
+        futures.append(self.drone.client.moveByVelocityBodyFrameAsync(*vel, self.input_rate, vehicle_name=self.drone.vehicleName))
 
         rot = [0, 0, 0]
         shouldRot = False
@@ -98,7 +102,7 @@ class DroneKeyboardController:
             shouldRot = True
 
         if(shouldRot):
-            self.drone.client.moveByAngleRatesThrottleAsync(*rot, throttle=10, duration=self.input_rate)
+            futures.append(self.drone.client.moveByAngleRatesThrottleAsync(*rot, throttle=10, duration=self.input_rate, vehicle_name=self.drone.vehicleName))
 
         if(self.inputs_held["take_image"] and not self.imageTaken):
             self.saveImage()
@@ -106,6 +110,8 @@ class DroneKeyboardController:
 
         if(not self.inputs_held["take_image"] and self.imageTaken):
             self.imageTaken = False
+
+        return futures
 
     # take image from drone camera and saves it. camera ids: https://microsoft.github.io/AirSim/image_apis/#multirotor
     def saveImage(self, cameraId = "bottom_center", img_path = "test_image.png"):
@@ -232,20 +238,20 @@ def controlDroneSwappableLoop(client : airsim.MultirotorClient):
 
     controlledIndex = 0
 
-    hotkey0 = keyboard.add_hotkey("9", incControlledIndex)
-    hotkey9 = keyboard.add_hotkey("8", decControlledIndex)  
+    hotkeynext = keyboard.add_hotkey("9", incControlledIndex)
+    hotkeyprev = keyboard.add_hotkey("8", decControlledIndex)  
 
     while True:
         currentController = controllers[controlledIndex]
-        currentController.process()
+        futures = currentController.process()
 
         if(keyboard.is_pressed("esc")):
             break
 
-        time.sleep(currentController.input_rate)
+        for future in futures: future.join()
 
-    keyboard.remove_hotkey(hotkey0)
-    keyboard.remove_hotkey(hotkey9)
+    keyboard.remove_hotkey(hotkeynext)
+    keyboard.remove_hotkey(hotkeyprev)
         
     for drone in drones : client.enableApiControl(False, drone.vehicleName) 
 

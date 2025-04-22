@@ -7,7 +7,9 @@ import asyncio
 from airsim import Vector3r
 from airsim_drone import Drone
 import numpy as np
+import airsim_splitscreen
 from airsim_splitscreen import simSplitScreen, simAttachCameraToDrone
+from airsim_texture_replacement import textureReplacePath, textureResize, standardTextureReplacement
 
 
 # calculates position of sound based on positions of sensors and time delay between each sensor hearing the sound
@@ -120,7 +122,10 @@ def simSpawnGunshotToFindMultidrone(client : airsim.MultirotorClient, drones : l
 def findGunshotLoop(client : airsim.MultirotorClient):
     
 
+    client.simRunConsoleCommand("DisableAllScreenMessages")
     print("Drone gunshot detection control activated. Press ESC to disable")
+
+    standardTextureReplacement(client)
 
     flightHeight = 20
 
@@ -132,13 +137,22 @@ def findGunshotLoop(client : airsim.MultirotorClient):
 
     drones = [mainDrone, secondDrone]
 
+    mainDrone.changeColor(.1, 0, .3)
+    secondDrone.changeColor(.1, .3, .0)
+
     # for i in range(3):
     #     drones.append(Drone(client, sensorSpots, vehicleName=f"Drone{i+2}", shouldSpawn=True, spawnPosition=Vector3r(5 * (i+1), -5, 1)))
 
-    time.sleep(1)
     simSplitScreen(client)
+    airsim_splitscreen.simSetFutureCameraOffset(client, -400, 0, 1250)
     simAttachCameraToDrone(client, droneName=mainDrone.vehicleName, cameraName="LeftScreenCapture")
     simAttachCameraToDrone(client, droneName=secondDrone.vehicleName, cameraName="RightScreenCapture")
+
+    time.sleep(1)
+
+    for drone in drones: client.simSetVehiclePose(airsim.Pose(Vector3r(400, 300, 0)), ignore_collision=True, vehicle_name=drone.vehicleName)
+
+    time.sleep(1)
 
     [client.enableApiControl(True, drone.vehicleName) for drone in drones]
     [client.armDisarm(True, drone.vehicleName) for drone in drones]
@@ -156,10 +170,10 @@ def findGunshotLoop(client : airsim.MultirotorClient):
             #     randX = random.randint(-35, 35)
             #     randY = random.randint(-30, 30)
             #     simSpawnGunshotToFindMultidrone(client, drones, Vector3r(randX, randY, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(20, 11, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-20, -2, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(15, -10, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-10, 12, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(420, 311, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(380, 298, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(415, 290, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(390, 312, -2))
             #simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-3, -20, -2))
             #simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-10, 25, -2))
         if(key == b'['):

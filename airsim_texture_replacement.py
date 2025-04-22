@@ -11,6 +11,11 @@ def textureReplace(client: airsim.MultirotorClient, obj_tag : str, tex_id : int)
 def textureResize(client: airsim.MultirotorClient, obj_name : str, uTiling: float, vTiling : float):
     client.simRunConsoleCommand(f"ce SetObjectMaterialTiling {obj_name} {uTiling} {vTiling}")
 
+def standardTextureReplacement(client:airsim.MultirotorClient):
+
+    textureReplacePath(client, obj_name="VariableSatImagePlane", path="C:\\Users\\sirun\\Documents\\grad school stuff\\Research Assistant Work\\dronesim_research\\map_output.png")
+    textureResize(client, obj_name="VariableSatImagePlane", uTiling=4, vTiling=4)
+
 if __name__ == '__main__':
     client = airsim.MultirotorClient()
     client.confirmConnection()
@@ -19,4 +24,4 @@ if __name__ == '__main__':
     
     # textureReplace(client, "plane", 3)
     # textureReplace(client, "plane2", 7)
-    textureReplacePath(client, obj_name="VariableSatImagePlane", path="C:\\Users\\sirun\\Documents\\grad school stuff\\Research Assistant Work\\dronesim_research\\map_output.png")
+    standardTextureReplacement(client)
