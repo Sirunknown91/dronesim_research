@@ -7,9 +7,11 @@ from airsim_list_all_objects import printAllObjects, printAllAvailAssets
 from threading import Thread
 from time import sleep
 import airsim_splitscreen
+import airsim_minimap
 from airsim_drone import Drone
 import os 
 from typing import Dict
+from collections.abc import Callable
 # relevant documentation: https://microsoft.github.io/AirSim/apis/
 
 class DroneKeyboardController:
@@ -142,47 +144,12 @@ def controlDroneLoop(client : airsim.MultirotorClient):
 
     startingDroneHeightMeters = client.getGpsData().gnss.geo_point.altitude
 
+    defaultDrone = Drone(client)
+    controller = DroneKeyboardController(defaultDrone)
+
     while True:
         
-        futures = []
-
-        # setting flight direction based on keyboard input
-        vel = [0, 0, 0]
-        
-        # vertical movement
-        if(keyboard.is_pressed('space')):
-            vel[2] += -10
-        if(keyboard.is_pressed('ctrl')):
-            vel[2] += 10
-
-        # forward/back movement
-        if(keyboard.is_pressed('w')):
-            vel[0] += 10
-        if(keyboard.is_pressed('s')):
-            vel[0] += -10
-
-        # left/right movement
-        if(keyboard.is_pressed('d')):
-            vel[1] += 10
-        if(keyboard.is_pressed('a')):
-            vel[1] += -10
-    
-        # telling the sim drone to fly
-        futures.append(client.moveByVelocityBodyFrameAsync(*vel, input_rate))
-
-        #rotation
-        #   roll pitch yaw
-        rot = [0, 0, 0]
-        shouldRot = False
-        if(keyboard.is_pressed('q')):
-            rot[2] += 1
-            shouldRot = True
-        if(keyboard.is_pressed('e')):
-            rot[2] += -1
-            shouldRot = True
-
-        if(shouldRot):
-            futures.append(client.moveByAngleRatesThrottleAsync(*rot, throttle=10, duration=input_rate))
+        futures = controller.process()
         
         trueVel = client.getGpsData().gnss.velocity
 
@@ -192,20 +159,11 @@ def controlDroneLoop(client : airsim.MultirotorClient):
         droneHeightFeet = droneHeightMeters * 3.28084
         client.simPrintLogMessage("Approximate height off ground: ", f"{round(droneHeightMeters, 2)} meters ({round(droneHeightFeet, 2)} feet)")
 
-        if(keyboard.is_pressed('.') and not imageTaken):
-            imageTaken = True
-            saveImage(client)
-        
-        #makes sure image is only taken once per press of . instead of once per frame while holding .
-        if(not keyboard.is_pressed('.')):
-            imageTaken = False
-
         # disable script
         if(keyboard.is_pressed('esc')):
             break
 
-        #for future in futures : future.join()
-        time.sleep(input_rate)
+        for future in futures : future.join()
 
     print("Drone keyboard control deactivated")
     client.enableApiControl(False)
@@ -254,6 +212,78 @@ def controlDroneSwappableLoop(client : airsim.MultirotorClient):
     keyboard.remove_hotkey(hotkeyprev)
         
     for drone in drones : client.enableApiControl(False, drone.vehicleName) 
+
+
+def incControlledDrone():
+    global controlledIndex, drones
+    controlledIndex += 1
+    controlledIndex %= len(drones)
+
+def decControlledDrone():
+    global controlledIndex, drones
+    controlledIndex -= 1
+    controlledIndex %= len(drones)
+
+def updateCameraFollow():
+    global controlledIndex, drones, _droneswappedlisteners
+    currentDrone = drones[controlledIndex]
+    airsim_splitscreen.simSetFutureCameraOffset(currentDrone.client, -300, 0, 250)
+    airsim_splitscreen.simAttachCameraToDrone(currentDrone.client, droneName=currentDrone.vehicleName, cameraName="LeftScreenCapture")
+    airsim_splitscreen.simSetFutureCameraOffset(currentDrone.client, -50, 0, 750)
+    airsim_splitscreen.simAttachCameraToDrone(currentDrone.client, droneName=currentDrone.vehicleName, cameraName="RightScreenCapture")
+
+
+def controlDroneSwappableCameraLoop(client : airsim.MultirotorClient):
+    global controlledIndex, drones
+
+    vehicleNames = client.listVehicles()
+    
+    drones = []
+    for droneName in vehicleNames:
+        drones.append(Drone(client, vehicleName=droneName))
+
+    for drone in drones : client.enableApiControl(True, drone.vehicleName) 
+
+    controllers = []
+    for drone in drones:
+        controllers.append(DroneKeyboardController(drone, input_rate=1/10))
+
+    controlledIndex = 0
+    lastControlledIndex = -1
+
+    updateCameraFollow()
+
+    hotkeynext = keyboard.add_hotkey("9", incControlledDrone)
+    hotkeyprev = keyboard.add_hotkey("8", decControlledDrone)  
+
+    while True:
+        futures = []
+        currentController = controllers[controlledIndex]
+        #for currentController in controllers:
+        futures += currentController.process()
+
+        if(lastControlledIndex != controlledIndex):
+            lastControlledIndex = controlledIndex
+            updateCameraFollow()
+            currentDrone = drones[controlledIndex]
+            for listener in _droneswappedlisteners:
+                listener(currentDrone)
+
+        airsim_minimap.simUpdateMinimapWidthToKeepDronesVis(client, drones, drones[controlledIndex])
+        if(keyboard.is_pressed("esc")):
+            break
+
+        for future in futures: future.join()
+
+    keyboard.remove_hotkey(hotkeynext)
+    keyboard.remove_hotkey(hotkeyprev)
+        
+    for drone in drones : client.enableApiControl(False, drone.vehicleName) 
+
+_droneswappedlisteners = []
+
+def AddDroneSwappedListener(listener : Callable):
+    _droneswappedlisteners.append(listener)
 
 if __name__ == '__main__':
     client = airsim.MultirotorClient()

@@ -150,10 +150,6 @@ def findGunshotLoop(client : airsim.MultirotorClient):
 
     time.sleep(1)
 
-    for drone in drones: client.simSetVehiclePose(airsim.Pose(Vector3r(400, 300, 0)), ignore_collision=True, vehicle_name=drone.vehicleName)
-
-    time.sleep(1)
-
     [client.enableApiControl(True, drone.vehicleName) for drone in drones]
     [client.armDisarm(True, drone.vehicleName) for drone in drones]
 
@@ -170,10 +166,10 @@ def findGunshotLoop(client : airsim.MultirotorClient):
             #     randX = random.randint(-35, 35)
             #     randY = random.randint(-30, 30)
             #     simSpawnGunshotToFindMultidrone(client, drones, Vector3r(randX, randY, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(420, 311, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(380, 298, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(415, 290, -2))
-            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(390, 312, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(20, 11, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-20, -2, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(15, -10, -2))
+            simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-10, 12, -2))
             #simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-3, -20, -2))
             #simSpawnGunshotToFindMultidrone(client, drones, Vector3r(-10, 25, -2))
         if(key == b'['):

@@ -5,6 +5,7 @@ import airsim_list_all_objects
 import airsim_destroy_everything
 import airsim_find_gunshot
 import airsim_splitscreen
+from airsim_minimap import simSetMinimapFollowTarget, simShowMinimap, simSetMinimapWidth
 from airsim_drone import Drone
 import os
 import time
@@ -59,9 +60,14 @@ def launchAirsim():
 
     #fix screen tearing
     client.simRunConsoleCommand("r.vsync 1")
+
+    simShowMinimap(client)
+    simSetMinimapFollowTarget(client, "MainDrone")
+    simSetMinimapWidth(client, 3500)
     
-    airsim_splitscreen.splitScreenKeyboardCameraSwappableDemo(client)
+    #airsim_splitscreen.splitScreenKeyboardCameraSwappableDemo(client)
     #airsim_find_gunshot.findGunshotLoop(client)
+    airsim_keyboard_controller.controlDroneLoop(client)
 
 if __name__ == '__main__':
     launchAirsim()
