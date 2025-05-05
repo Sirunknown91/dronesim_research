@@ -164,9 +164,6 @@ def splitScreenKeyboardDemo(client : airsim.MultirotorClient):
     [client.enableApiControl(True, drone.vehicleName) for drone in drones]
     [client.armDisarm(True, drone.vehicleName) for drone in drones]
 
-    futures = [client.takeoffAsync(20, drone.vehicleName) for drone in drones]
-    [future.join() for future in futures]
-
     # drone controllers    
     controller1 = airsim_keyboard_controller.DroneKeyboardController(mainDrone, {})
     controller2 = airsim_keyboard_controller.DroneKeyboardController(secondDrone, {"forward": "i", "back": "k", "left" : "j", "right" : "l", "up": ".", "down": ","})
@@ -174,6 +171,8 @@ def splitScreenKeyboardDemo(client : airsim.MultirotorClient):
     while True:
         controller1.process()
         controller2.process()
+
+        airsim_minimap.simUpdateMinimapWidthToKeepDronesVis(client, drones, mainDrone, buffer=1000)
 
         if(keyboard.is_pressed("esc")):
             break
@@ -240,10 +239,10 @@ def splitScreenKeyboardCameraSwappableDemo(client : airsim.MultirotorClient):
 
     random.seed(10) # just for consistent colors between starts
 
-    additionalDroneCount = 3
+    additionalDroneCount = 4
     for i in range(additionalDroneCount):
         newDrone = Drone(client, vehicleName=f"Drone{i+2}", shouldSpawn=True, spawnPosition=Vector3r(5, -5 + (3 * i), -0.5), pawn_path=("QuadrotorAlt1"))
-        newDrone.changeColor(random.uniform(0, 1), random.uniform(0,1), random.uniform(0,1))
+        newDrone.changeColor(random.uniform(0, .5), random.uniform(0,.5), random.uniform(0,1))
         drones.append(newDrone)
 
     # more misc setup
@@ -254,6 +253,28 @@ def splitScreenKeyboardCameraSwappableDemo(client : airsim.MultirotorClient):
 
     # activating control scheme
     airsim_keyboard_controller.controlDroneSwappableCameraLoop(client)
+
+    # returning home
+    print("Manual control disabled, returning drones home.")
+    for drone in drones : client.enableApiControl(True, drone.vehicleName) 
+
+    futures = [client.moveToPositionAsync(0, 0, -20, velocity=10, vehicle_name=drone.vehicleName) for drone in drones]
+    
+    for future in futures: 
+        future.join()
+
+        # key = airsim.wait_key("Press any key other than ESC in console to reenable drone control. Press ESC to end.")
+
+        # if(key == b'\x1b'):
+        #     break
+    
+    futures = [client.hoverAsync(drone.vehicleName) for drone in drones]
+    
+    for future in futures: 
+        future.join()
+
+        
+    for drone in drones : client.enableApiControl(False, drone.vehicleName) 
 
 def SwapMinimapToDrone(drone : Drone):
     airsim_minimap.simSetMinimapFollowTarget(drone.client, drone.vehicleName)

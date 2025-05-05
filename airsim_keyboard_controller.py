@@ -232,7 +232,6 @@ def updateCameraFollow():
     airsim_splitscreen.simSetFutureCameraOffset(currentDrone.client, -50, 0, 750)
     airsim_splitscreen.simAttachCameraToDrone(currentDrone.client, droneName=currentDrone.vehicleName, cameraName="RightScreenCapture")
 
-
 def controlDroneSwappableCameraLoop(client : airsim.MultirotorClient):
     global controlledIndex, drones
 
@@ -269,7 +268,7 @@ def controlDroneSwappableCameraLoop(client : airsim.MultirotorClient):
             for listener in _droneswappedlisteners:
                 listener(currentDrone)
 
-        airsim_minimap.simUpdateMinimapWidthToKeepDronesVis(client, drones, drones[controlledIndex])
+        airsim_minimap.simUpdateMinimapWidthToKeepDronesVis(client, drones, drones[controlledIndex], buffer=1000)
         if(keyboard.is_pressed("esc")):
             break
 

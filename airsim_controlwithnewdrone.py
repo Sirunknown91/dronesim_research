@@ -1,5 +1,6 @@
 import airsim
 import airsim_keyboard_controller
+import airsim_splitscreen
 from airsim_drone import Drone
 import keyboard
 import random
@@ -15,6 +16,11 @@ def launchNewDrone(client : airsim.MultirotorClient):
 
     newDrone = Drone(client, vehicleName=name, shouldSpawn=True, spawnPosition=airsim.Vector3r(3 * index), pawn_path="QuadrotorAlt1")
     newDrone.changeColor(random.uniform(0, 1), random.uniform(0,1), random.uniform(0,1))
+
+    airsim_splitscreen.simSetFutureCameraOffset(client, -300, 0, 250)
+    airsim_splitscreen.simAttachCameraToDrone(client, droneName=newDrone.vehicleName, cameraName="LeftScreenCapture")
+    airsim_splitscreen.simSetFutureCameraOffset(client, -50, 0, 750)
+    airsim_splitscreen.simAttachCameraToDrone(client, droneName=newDrone.vehicleName, cameraName="RightScreenCapture")
 
     client.enableApiControl(True, newDrone.vehicleName)
 

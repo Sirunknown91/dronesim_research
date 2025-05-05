@@ -11,6 +11,7 @@ def textureReplace(client: airsim.MultirotorClient, obj_tag : str, tex_id : int)
 def textureResize(client: airsim.MultirotorClient, obj_name : str, uTiling: float, vTiling : float):
     client.simRunConsoleCommand(f"ce SetObjectMaterialTiling {obj_name} {uTiling} {vTiling}")
 
+# disabled due to new environment
 def standardTextureReplacement(client:airsim.MultirotorClient):
     pass
     #textureReplacePath(client, obj_name="VariableSatImagePlane", path="C:\\Users\\sirun\\Documents\\grad school stuff\\Research Assistant Work\\dronesim_research\\map_output.png")
